@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="SBT: plexus:plexus-utils:1.0.2:jar">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.ivy2/cache/plexus/plexus-utils/jars/plexus-utils-1.0.2.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

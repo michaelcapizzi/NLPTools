@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="SBT: org.codehaus.plexus:plexus-container-default:1.0-alpha-30:jar">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.ivy2/cache/org.codehaus.plexus/plexus-container-default/jars/plexus-container-default-1.0-alpha-30.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$USER_HOME$/.ivy2/cache/org.codehaus.plexus/plexus-container-default/docs/plexus-container-default-1.0-alpha-30-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.ivy2/cache/org.codehaus.plexus/plexus-container-default/srcs/plexus-container-default-1.0-alpha-30-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

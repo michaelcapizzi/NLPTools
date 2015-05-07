@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="SBT: unmanaged-sources-and-docs">
+    <CLASSES />
+    <JAVADOC>
+      <root url="jar://$USER_HOME$/.ivy2/cache/org.scala-tools/maven-scala-plugin/docs/maven-scala-plugin-2.15.2-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.ivy2/cache/org.scala-tools/maven-scala-plugin/srcs/maven-scala-plugin-2.15.2-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

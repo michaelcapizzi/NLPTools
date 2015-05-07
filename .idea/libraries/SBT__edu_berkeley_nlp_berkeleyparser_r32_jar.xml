@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="SBT: edu.berkeley.nlp:berkeleyparser:r32:jar">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.ivy2/cache/edu.berkeley.nlp/berkeleyparser/jars/berkeleyparser-r32.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$USER_HOME$/.ivy2/cache/edu.berkeley.nlp/berkeleyparser/docs/berkeleyparser-r32-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.ivy2/cache/edu.berkeley.nlp/berkeleyparser/srcs/berkeleyparser-r32-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

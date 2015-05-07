@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="SBT: com.sparkjava:spark-core:2.1:jar">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.ivy2/cache/com.sparkjava/spark-core/jars/spark-core-2.1.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$USER_HOME$/.ivy2/cache/com.sparkjava/spark-core/docs/spark-core-2.1-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.ivy2/cache/com.sparkjava/spark-core/srcs/spark-core-2.1-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
