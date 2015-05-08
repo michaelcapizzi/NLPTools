@@ -17,6 +17,8 @@ libraryDependencies ++= Seq(
   "org.scalanlp" % "breeze-natives_2.11" % "0.11.2",
   "org.scalanlp" % "breeze_2.11" % "0.11.2",
   "edu.cmu.cs" % "ark-tweet-nlp" % "0.3.2",
+  "org.twitter4j" % "twitter4j" % "4.0.3",
+  "org.facebook4j" % "facebook4j-core" % "2.2.2",
   "org.scala-tools" % "maven-scala-plugin" % "2.15.2",
   "com.github.fommil.netlib" % "all" % "1.1.2",
   "javax.servlet" % "javax.servlet-api" % "3.0.1" % "provided",
@@ -26,7 +28,7 @@ libraryDependencies ++= Seq(
 )
 
 resolvers ++= Seq(
-  "Akka Repository" at "http://repo.akka.io/releases/",
-  "Spray Repository" at "http://repo.spray.cc/",
-  "Typesafe Repo" at "http://repo.typesafe.com/typesafe/releases/"
+//  "Akka Repository" at "http://repo.akka.io/releases/",
+//  "Spray Repository" at "http://repo.spray.cc/",
+//  "Typesafe Repo" at "http://repo.typesafe.com/typesafe/releases/"
 )

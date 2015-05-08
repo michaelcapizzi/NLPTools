@@ -7,15 +7,15 @@
 		revision="1.0"
 		conf="provided"
 		confs="compile, runtime, test, provided, optional, compile-internal, runtime-internal, test-internal, plugin, sources, docs, pom, scala-tool"
-		date="20150507103254"/>
+		date="20150507195056"/>
 	<dependencies>
 		<module organisation="javax.servlet" name="javax.servlet-api">
-			<revision name="3.0.1" status="release" pubdate="20110712124053" resolver="public" artresolver="public" homepage="http://servlet-spec.java.net" downloaded="true" searched="true" default="false" conf="default, compile, runtime, default(compile), master" position="0">
+			<revision name="3.0.1" status="release" pubdate="20110712124053" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://servlet-spec.java.net" downloaded="false" searched="false" default="false" conf="default, compile, runtime, default(compile), master" position="0">
 				<license name="CDDL + GPLv2 with classpath exception" url="https://glassfish.dev.java.net/nonav/public/CDDL+GPL.html"/>
-				<metadata-artifact status="successful" details="" size="12633" time="339" location="/home/mcapizzi/.ivy2/cache/javax.servlet/javax.servlet-api/ivy-3.0.1.xml" searched="true" original-local-location="/home/mcapizzi/.ivy2/cache/javax.servlet/javax.servlet-api/ivy-3.0.1.xml.original" origin-is-local="false" origin-location="http://repo1.maven.org/maven2/javax/servlet/javax.servlet-api/3.0.1/javax.servlet-api-3.0.1.pom"/>
+				<metadata-artifact status="no" details="" size="3676" time="0" location="/home/mcapizzi/.ivy2/cache/javax.servlet/javax.servlet-api/ivy-3.0.1.xml" searched="false" origin-is-local="false" origin-location="http://repo1.maven.org/maven2/javax/servlet/javax.servlet-api/3.0.1/javax.servlet-api-3.0.1.pom"/>
 				<caller organisation="nlptools" name="nlptools_2.11" conf="provided" rev="3.0.1" rev-constraint-default="3.0.1" rev-constraint-dynamic="3.0.1" callerrev="1.0"/>
 				<artifacts>
-					<artifact name="javax.servlet-api" type="jar" ext="jar" status="successful" details="" size="85353" time="464" location="/home/mcapizzi/.ivy2/cache/javax.servlet/javax.servlet-api/jars/javax.servlet-api-3.0.1.jar">
+					<artifact name="javax.servlet-api" type="jar" ext="jar" status="no" details="" size="85353" time="0" location="/home/mcapizzi/.ivy2/cache/javax.servlet/javax.servlet-api/jars/javax.servlet-api-3.0.1.jar">
 						<origin-location is-local="false" location="http://repo1.maven.org/maven2/javax/servlet/javax.servlet-api/3.0.1/javax.servlet-api-3.0.1.jar"/>
 					</artifact>
 				</artifacts>
