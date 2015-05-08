@@ -22,6 +22,8 @@ class NaiveBayes (
                   val naiveBayesModelPath: String = ""
                    ) {
 
+  //TODO gitignore
+
   def annotate = {
     val p = new FastNLPProcessor
     val allDocs = this.trainingData ++ this.testDocuments
@@ -29,18 +31,12 @@ class NaiveBayes (
   }
 
 
-  def possibleLabels = {
-    trainingData.map(_._2).distinct.sorted
+  val possibleLabels = trainingData.map(_._2).distinct.zipWithIndex.toMap
+
+
+  def convertLabel(label: String) = {
+    this.possibleLabels(label).toDouble
   }
-
-
-  //TODO build way to convert labels
-  /*def convertLabel = {
-    var counter = -1
-    for (label <- possibleLabels) yield {
-
-    }
-  }*/
 
 
 //extract all vocabulary
@@ -164,7 +160,7 @@ class NaiveBayes (
 
   def buildFeatureVectors(withTest: Boolean, lemma: Boolean) = {
     for (doc <- this.getDocWordCounts(withTest, lemma)) yield {
-      LabeledPoint(convertLabel(doc._2), Vectors.dense(doc._3) )
+      LabeledPoint(convertLabel(doc._2), Vectors.dense(doc._3))
     }
   }
 
