@@ -1,7 +1,8 @@
 package MachineLearning
 
 import edu.arizona.sista.processors.fastnlp.FastNLPProcessor
-import edu.arizona.sista.struct.Lexicon
+import edu.arizona.sista.struct.{Counter, Lexicon}
+import org.apache.spark.mllib.regression.LabeledPoint
 import org.apache.spark.{SparkContext, SparkConf}
 
 import scala.collection.immutable._
@@ -10,8 +11,8 @@ import scala.collection.immutable._
  * Created by mcapizzi on 5/8/15.
  */
 class NaiveBayes (
-                  val trainingData: Vector[edu.arizona.sista.processors.Document],
-                  val testDocuments: Vector[edu.arizona.sista.processors.Document],
+                  val trainingData: Vector[(String, String, edu.arizona.sista.processors.Document)],    //title, label, string
+                  val testDocuments: Vector[(String, String, edu.arizona.sista.processors.Document)],    //title, label, string
                   val stopWords: Vector[String] = Vector(),
                   countFrequencyThreshold: Int = 0,
                   documentFrequencyThreshold: Int = 0,
@@ -23,57 +24,99 @@ class NaiveBayes (
   def annotate = {
     val p = new FastNLPProcessor
     val allDocs = this.trainingData ++ this.testDocuments
-    allDocs.map(each => p.annotate(each))
+    allDocs.map(each => p.annotate(each._3))
   }
 
 //extract all vocabulary
   def extractVocabulary(withTest: Boolean, lemma: Boolean) = {
     if (withTest && lemma) {
       (this.trainingData ++ this.testDocuments).map(doc =>
-        doc.sentences.map(sent => sent.lemmas.get.toVector)).
+        doc._3.sentences.map(sent => sent.lemmas.get.toVector)).
         flatten.flatten.
+        filter(_.matches("[A-Za-z]+")).
         map(_.toLowerCase).
         distinct.
         diff(stopWords.map(_.toLowerCase))
     } else if (withTest == true && lemma == false) {
       (this.trainingData ++ this.testDocuments).map(doc =>
-        doc.sentences.map(sent => sent.words)).
+        doc._3.sentences.map(sent => sent.words)).
         flatten.flatten.
+        filter(_.matches("[A-Za-z]+")).
         map(_.toLowerCase).
         distinct.
         diff(stopWords.map(_.toLowerCase))
     } else if (withTest == false && lemma == true) {
       this.trainingData.map(doc =>
-        doc.sentences.map(sent => sent.lemmas.get.toVector)).
+        doc._3.sentences.map(sent => sent.lemmas.get.toVector)).
         flatten.flatten.
+        filter(_.matches("[A-Za-z]+")).
         map(_.toLowerCase).
         distinct.
         diff(stopWords.map(_.toLowerCase))
     } else {
       this.trainingData.map(doc =>
-        doc.sentences.map(sent => sent.words)).
+        doc._3.sentences.map(sent => sent.words)).
         flatten.flatten.
+        filter(_.matches("[A-Za-z]+")).
         map(_.toLowerCase).
         distinct.
         diff(stopWords.map(_.toLowerCase))
     }
   }
 
+  def tokenizeTrainDocuments(lemma: Boolean) = {
+    if (lemma) {
+      for (doc <- trainingData) yield {
+        (
+          doc._1,
+          doc._2,
+          doc._3.sentences.map(sent => sent.lemmas.get.toVector).
+            flatten.
+            filter(_.matches("[A-Za-z]+")).
+            map(_.toLowerCase).
+            diff(stopWords.map(_.toLowerCase))
+        )
+      }
+    } else {
+      for (doc <- trainingData) yield {
+        (
+          doc._1,
+          doc._2,
+          doc._3.sentences.map(sent => sent.words).
+            flatten.
+            filter(_.matches("[A-Za-z]+")).
+            map(_.toLowerCase).
+            diff(stopWords.map(_.toLowerCase))
+        )
+      }
+    }
+  }
+
   def tokenizeTestDocuments(lemma: Boolean) = {
     if (lemma) {
-      testDocuments.map(doc =>
-        doc.sentences.map(sent => sent.lemmas.get.toVector).
-        flatten.
-        map(_.toLowerCase).
-        distinct.
-        diff(stopWords.map(_.toLowerCase)))
+      for (doc <- testDocuments) yield {
+        (
+          doc._1,
+          doc._2,
+          doc._3.sentences.map(sent => sent.lemmas.get.toVector).
+            flatten.
+            filter(_.matches("[A-Za-z]+")).
+            map(_.toLowerCase).
+            diff(stopWords.map(_.toLowerCase))
+        )
+      }
     } else {
-      testDocuments.map(doc =>
-        doc.sentences.map(sent => sent.words).
-          flatten.
-          map(_.toLowerCase).
-          distinct.
-          diff(stopWords.map(_.toLowerCase)))
+      for (doc <- testDocuments) yield {
+        (
+          doc._1,
+          doc._2,
+          doc._3.sentences.map(sent => sent.words).
+            flatten.
+            filter(_.matches("[A-Za-z]+")).
+            map(_.toLowerCase).
+            diff(stopWords.map(_.toLowerCase))
+        )
+      }
     }
   }
 
@@ -83,16 +126,39 @@ class NaiveBayes (
     this.extractVocabulary(withTest, lemma).map(lex.add)
   }
 
+  //build a feature vector for each text
+  def getDocWordCounts(withTest: Boolean, lemma: Boolean) = {
+    for (doc <- tokenizeTrainDocuments(lemma) ++ tokenizeTestDocuments(lemma)) yield {
+      val wc = wordCount(doc._3)
+
+      (
+        doc._1,
+        doc._2,
+        for (word <- this.extractVocabulary(withTest, lemma)) yield {
+          wc(word)
+        }
+      )
+    }
+  }
+
+  def buildFeatureVectors(withTest: Boolean, lemma: Boolean) = {
+
+  }
+
+
   /////////////////with Spark////////////////////
 
   val conf = new SparkConf().setAppName("naiveBayes").setMaster(masterLocation)
   val sc = new SparkContext(conf)
 
-  def wordCount(withTest: Boolean, lemma: Boolean) = {
-    val parallelized = sc.parallelize(this.extractVocabulary(withTest, lemma))
+  def wordCount(tokenizedDoc: Array[String]) = {
+    val parallelized = sc.parallelize(tokenizedDoc)
     val wordCount = parallelized.map(word => (word, 1)).
       reduceByKey(_+_)
-    ListMap[String, Int]() ++ wordCount.collectAsMap
+    wordCount.collectAsMap
   }
+
+
+
 
 }
