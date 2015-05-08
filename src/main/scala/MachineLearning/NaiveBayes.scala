@@ -1,7 +1,8 @@
 package MachineLearning
 
 import edu.arizona.sista.processors.fastnlp.FastNLPProcessor
-import edu.arizona.sista.struct.{Counter, Lexicon}
+import edu.arizona.sista.struct.Lexicon
+import org.apache.spark.mllib.linalg.Vectors
 import org.apache.spark.mllib.regression.LabeledPoint
 import org.apache.spark.{SparkContext, SparkConf}
 
@@ -26,6 +27,21 @@ class NaiveBayes (
     val allDocs = this.trainingData ++ this.testDocuments
     allDocs.map(each => p.annotate(each._3))
   }
+
+
+  def possibleLabels = {
+    trainingData.map(_._2).distinct.sorted
+  }
+
+
+  //TODO build way to convert labels
+  /*def convertLabel = {
+    var counter = -1
+    for (label <- possibleLabels) yield {
+
+    }
+  }*/
+
 
 //extract all vocabulary
   def extractVocabulary(withTest: Boolean, lemma: Boolean) = {
@@ -64,12 +80,13 @@ class NaiveBayes (
     }
   }
 
+
   def tokenizeTrainDocuments(lemma: Boolean) = {
     if (lemma) {
       for (doc <- trainingData) yield {
         (
-          doc._1,
-          doc._2,
+          doc._1,                                                     //title
+          doc._2,                                                     //label
           doc._3.sentences.map(sent => sent.lemmas.get.toVector).
             flatten.
             filter(_.matches("[A-Za-z]+")).
@@ -80,8 +97,8 @@ class NaiveBayes (
     } else {
       for (doc <- trainingData) yield {
         (
-          doc._1,
-          doc._2,
+          doc._1,                                                   //title
+          doc._2,                                                   //label
           doc._3.sentences.map(sent => sent.words).
             flatten.
             filter(_.matches("[A-Za-z]+")).
@@ -92,12 +109,13 @@ class NaiveBayes (
     }
   }
 
+
   def tokenizeTestDocuments(lemma: Boolean) = {
     if (lemma) {
       for (doc <- testDocuments) yield {
         (
-          doc._1,
-          doc._2,
+          doc._1,                                                   //title
+          doc._2,                                                   //label
           doc._3.sentences.map(sent => sent.lemmas.get.toVector).
             flatten.
             filter(_.matches("[A-Za-z]+")).
@@ -108,8 +126,8 @@ class NaiveBayes (
     } else {
       for (doc <- testDocuments) yield {
         (
-          doc._1,
-          doc._2,
+          doc._1,                                                   //title
+          doc._2,                                                   //label
           doc._3.sentences.map(sent => sent.words).
             flatten.
             filter(_.matches("[A-Za-z]+")).
@@ -119,6 +137,7 @@ class NaiveBayes (
       }
     }
   }
+
 
 //build lexicon of all vocabulary
   def allVocabularyLexicon(withTest: Boolean, lemma: Boolean) = {
@@ -126,23 +145,27 @@ class NaiveBayes (
     this.extractVocabulary(withTest, lemma).map(lex.add)
   }
 
+
   //build a feature vector for each text
   def getDocWordCounts(withTest: Boolean, lemma: Boolean) = {
     for (doc <- tokenizeTrainDocuments(lemma) ++ tokenizeTestDocuments(lemma)) yield {
       val wc = wordCount(doc._3)
 
       (
-        doc._1,
-        doc._2,
-        for (word <- this.extractVocabulary(withTest, lemma)) yield {
-          wc(word)
-        }
+        doc._1,                                                             //title
+        doc._2,                                                             //label
+        (for (word <- this.extractVocabulary(withTest, lemma)) yield {
+          wc(word).toDouble
+        }).toArray
       )
     }
   }
 
-  def buildFeatureVectors(withTest: Boolean, lemma: Boolean) = {
 
+  def buildFeatureVectors(withTest: Boolean, lemma: Boolean) = {
+    for (doc <- this.getDocWordCounts(withTest, lemma)) yield {
+      LabeledPoint(convertLabel(doc._2), Vectors.dense(doc._3) )
+    }
   }
 
 
