@@ -4,7 +4,7 @@
 		module="nlptools_2.11"
 		revision="1.0"
 		status="integration"
-		publication="20150507195056"
+		publication="20150508103453"
 	>
 		<description>
 		NLPTools
@@ -45,6 +45,7 @@
 		<dependency org="com.quantifind" name="wisp_2.11" rev="0.0.4" conf="compile->default(compile)"/>
 		<dependency org="org.scalanlp" name="breeze-natives_2.11" rev="0.11.2" conf="compile->default(compile)"/>
 		<dependency org="org.scalanlp" name="breeze_2.11" rev="0.11.2" conf="compile->default(compile)"/>
+		<dependency org="org.jblas" name="jblas" rev="1.2.3" conf="compile->default(compile)"/>
 		<dependency org="edu.cmu.cs" name="ark-tweet-nlp" rev="0.3.2" conf="compile->default(compile)"/>
 		<dependency org="org.twitter4j" name="twitter4j" rev="4.0.3" conf="compile->default(compile)"/>
 		<dependency org="org.facebook4j" name="facebook4j-core" rev="2.2.2" conf="compile->default(compile)"/>
@@ -53,5 +54,6 @@
 		<dependency org="javax.servlet" name="javax.servlet-api" rev="3.0.1" conf="provided->default(compile)"/>
 		<dependency org="org.apache.spark" name="spark-core_2.11" rev="1.3.1" conf="compile->default(compile)"/>
 		<dependency org="org.apache.spark" name="spark-streaming_2.11" rev="1.3.1" conf="compile->default(compile)"/>
+		<dependency org="org.apache.spark" name="spark-mllib_2.11" rev="1.3.1" conf="compile->default(compile)"/>
 	</dependencies>
 </ivy-module>
