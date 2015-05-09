@@ -2,6 +2,7 @@ package MachineLearning
 
 import edu.arizona.sista.processors.fastnlp.FastNLPProcessor
 import edu.arizona.sista.struct.Lexicon
+import org.apache.spark.mllib.classification.NaiveBayes
 import org.apache.spark.mllib.linalg.Vectors
 import org.apache.spark.mllib.regression.LabeledPoint
 import org.apache.spark.{SparkContext, SparkConf}
@@ -12,6 +13,7 @@ import scala.collection.immutable._
  * Created by mcapizzi on 5/8/15.
  */
 class NaiveBayes (
+                  val multinomial: Boolean,
                   val trainingData: Vector[(String, String, edu.arizona.sista.processors.Document)],    //title, label, string
                   val testDocuments: Vector[(String, String, edu.arizona.sista.processors.Document)],    //title, label, string
                   val stopWords: Vector[String] = Vector(),
@@ -22,7 +24,7 @@ class NaiveBayes (
                   val naiveBayesModelPath: String = ""
                    ) {
 
-  //TODO gitignore
+  //TODO test Bernoulli v. Multinomial
 
   def annotate = {
     val p = new FastNLPProcessor
@@ -142,18 +144,64 @@ class NaiveBayes (
   }
 
 
-  //build a feature vector for each text
+ //build a feature vector for each text
   def getDocWordCounts(withTest: Boolean, lemma: Boolean) = {
-    for (doc <- tokenizeTrainDocuments(lemma) ++ tokenizeTestDocuments(lemma)) yield {
-      val wc = wordCount(doc._3)
+    if (this.multinomial == false) {
+      if (withTest) {
+        for (doc <- tokenizeTrainDocuments(lemma) ++ tokenizeTestDocuments(lemma)) yield {
+          val wc = wordCount(doc._3)
 
-      (
-        doc._1,                                                             //title
-        doc._2,                                                             //label
-        (for (word <- this.extractVocabulary(withTest, lemma)) yield {
-          wc(word).toDouble
-        }).toArray
-      )
+          (
+            doc._1,                                                             //title
+            doc._2,                                                             //label
+            (for (word <- this.extractVocabulary(withTest, lemma)) yield {
+              wc.getOrElse(word, 0).toDouble
+            }).toArray
+          )
+        }
+      } else {
+        for (doc <- tokenizeTrainDocuments(lemma)) yield {
+          val wc = wordCount(doc._3)
+
+          (
+            doc._1,                                                             //title
+            doc._2,                                                             //label
+            (for (word <- this.extractVocabulary(withTest, lemma)) yield {
+              wc.getOrElse(word, 0).toDouble
+            }).toArray
+          )
+        }
+      }
+    } else {
+      if (withTest) {
+        for (doc <- tokenizeTrainDocuments(lemma) ++ tokenizeTestDocuments(lemma)) yield {
+          val wc = wordCount(doc._3)
+
+          (
+            doc._1,                                                             //title
+            doc._2,                                                             //label
+            (for (word <- this.extractVocabulary(withTest, lemma)) yield {
+              if (wc.getOrElse(word, 0) != 0) {
+                1.0
+              } else 0.0
+            }).toArray
+          )
+        }
+      } else {
+        for (doc <- tokenizeTrainDocuments(lemma)) yield {
+          val wc = wordCount(doc._3)
+
+          (
+            doc._1,                                                             //title
+            doc._2,                                                             //label
+            (for (word <- this.extractVocabulary(withTest, lemma)) yield {
+              if (wc.getOrElse(word, 0) != 0) {
+                1.0
+              } else 0.0
+            }).toArray
+          )
+        }
+      }
     }
   }
 
@@ -177,7 +225,9 @@ class NaiveBayes (
     wordCount.collectAsMap
   }
 
-
+  /*def train(withTest: Boolean, lemma: Boolean, lambdaValue: Double, save: Boolean) = {
+    val model = NaiveBayes.train(this.buildFeatureVectors(withTest, lemma), lambda = lambdaValue)
+  }*/
 
 
 }
