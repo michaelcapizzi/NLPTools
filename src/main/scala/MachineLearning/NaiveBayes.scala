@@ -1,13 +1,15 @@
 package MachineLearning
 
+import edu.arizona.sista.processors.Document
 import edu.arizona.sista.processors.fastnlp.FastNLPProcessor
 import edu.arizona.sista.struct.Lexicon
-import org.apache.spark.mllib.classification.NaiveBayes
+import org.apache.spark.mllib.classification.{NaiveBayesModel, NaiveBayes}
 import org.apache.spark.mllib.linalg.Vectors
 import org.apache.spark.mllib.regression.LabeledPoint
 import org.apache.spark.rdd.RDD
 import org.apache.spark.{SparkContext, SparkConf}
 
+import scala.collection
 import scala.collection.immutable._
 
 /**
@@ -25,9 +27,15 @@ class NaiveBayes (
                   val naiveBayesModelPath: String = ""
                    ) {
 
+
   //TODO test Bernoulli v. Multinomial
 
-  def annotate = {
+  //Spark
+  val conf = new SparkConf().setAppName("naiveBayes").setMaster(masterLocation)
+  val sc = new SparkContext(conf)
+
+
+  def annotate: scala.Vector[Document] = {
     val p = new FastNLPProcessor
     val allDocs = this.trainingData ++ this.testDocuments
     allDocs.map(each => p.annotate(each._3))
@@ -37,13 +45,13 @@ class NaiveBayes (
   val possibleLabels = trainingData.map(_._2).distinct.zipWithIndex.toMap
 
 
-  def convertLabel(label: String) = {
+  def convertLabel(label: String): Double = {
     this.possibleLabels(label).toDouble
   }
 
 
 //extract all vocabulary
-  def extractVocabulary(withTest: Boolean, lemma: Boolean) = {
+  def extractVocabulary(withTest: Boolean, lemma: Boolean): scala.Vector[String] = {
     if (withTest && lemma) {
       (this.trainingData ++ this.testDocuments).map(doc =>
         doc._3.sentences.map(sent => sent.lemmas.get.toVector)).
@@ -80,7 +88,7 @@ class NaiveBayes (
   }
 
 
-  def tokenizeTrainDocuments(lemma: Boolean) = {
+  def tokenizeTrainDocuments(lemma: Boolean): scala.Vector[(String, String, Array[String])] = {
     if (lemma) {
       for (doc <- trainingData) yield {
         (
@@ -109,7 +117,7 @@ class NaiveBayes (
   }
 
 
-  def tokenizeTestDocuments(lemma: Boolean) = {
+  def tokenizeTestDocuments(lemma: Boolean): scala.Vector[(String, String, Array[String])] = {
     if (lemma) {
       for (doc <- testDocuments) yield {
         (
@@ -139,14 +147,14 @@ class NaiveBayes (
 
 
 //build lexicon of all vocabulary
-  def allVocabularyLexicon(withTest: Boolean, lemma: Boolean) = {
+  def allVocabularyLexicon(withTest: Boolean, lemma: Boolean): scala.Vector[Int] = {
     val lex = new Lexicon[String]
     this.extractVocabulary(withTest, lemma).map(lex.add)
   }
 
 
  //build a feature vector for each text
-  def getDocWordCounts(withTest: Boolean, lemma: Boolean) = {
+  def getDocWordCounts(withTest: Boolean, lemma: Boolean): scala.Vector[(String, String, Array[Double])] = {
     if (this.multinomial == false) {
       if (withTest) {
         for (doc <- tokenizeTrainDocuments(lemma) ++ tokenizeTestDocuments(lemma)) yield {
@@ -206,13 +214,14 @@ class NaiveBayes (
     }
   }
 
+
   //TODO build getTestDocWordCounts
   def getTestDocWordCounts = {
     //
   }
 
 
-  def buildFeatureVectors(withTest: Boolean, lemma: Boolean) = {
+  def buildFeatureVectors(withTest: Boolean, lemma: Boolean): scala.Vector[LabeledPoint] = {
     for (doc <- this.getDocWordCounts(withTest, lemma)) yield {
       LabeledPoint(convertLabel(doc._2), Vectors.dense(doc._3))
     }
@@ -225,11 +234,7 @@ class NaiveBayes (
   }
 
 
-  val conf = new SparkConf().setAppName("naiveBayes").setMaster(masterLocation)
-  val sc = new SparkContext(conf)
-
-
-  def wordCount(tokenizedDoc: Array[String]) = {
+  def wordCount(tokenizedDoc: Array[String]): collection.Map[String, Int] = {
     val parallelized = sc.parallelize(tokenizedDoc)
     val wordCount = parallelized.map(word => (word, 1)).
       reduceByKey(_+_)
@@ -237,7 +242,7 @@ class NaiveBayes (
   }
 
 
-  def buildTrainingModel(withTest: Boolean, lemma: Boolean, smoothing: Double, savePath: String) = {
+  def buildTrainingModel(withTest: Boolean, lemma: Boolean, smoothing: Double, savePath: String): NaiveBayesModel = {
     val dataRDD = sc.parallelize(this.buildFeatureVectors(withTest, lemma))
     val model = NaiveBayes.train(dataRDD, lambda = smoothing)
     if (savePath != "") {
