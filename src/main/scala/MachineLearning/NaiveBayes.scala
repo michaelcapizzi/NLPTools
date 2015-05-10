@@ -5,6 +5,7 @@ import edu.arizona.sista.struct.Lexicon
 import org.apache.spark.mllib.classification.NaiveBayes
 import org.apache.spark.mllib.linalg.Vectors
 import org.apache.spark.mllib.regression.LabeledPoint
+import org.apache.spark.rdd.RDD
 import org.apache.spark.{SparkContext, SparkConf}
 
 import scala.collection.immutable._
@@ -205,6 +206,11 @@ class NaiveBayes (
     }
   }
 
+  //TODO build getTestDocWordCounts
+  def getTestDocWordCounts = {
+    //
+  }
+
 
   def buildFeatureVectors(withTest: Boolean, lemma: Boolean) = {
     for (doc <- this.getDocWordCounts(withTest, lemma)) yield {
@@ -213,10 +219,15 @@ class NaiveBayes (
   }
 
 
-  /////////////////with Spark////////////////////
+  //TODO finish building this method
+  def buildTestFeatureVectors(lemma: Boolean) = {
+    //
+  }
+
 
   val conf = new SparkConf().setAppName("naiveBayes").setMaster(masterLocation)
   val sc = new SparkContext(conf)
+
 
   def wordCount(tokenizedDoc: Array[String]) = {
     val parallelized = sc.parallelize(tokenizedDoc)
@@ -225,9 +236,20 @@ class NaiveBayes (
     wordCount.collectAsMap
   }
 
-  /*def train(withTest: Boolean, lemma: Boolean, lambdaValue: Double, save: Boolean) = {
-    val model = NaiveBayes.train(this.buildFeatureVectors(withTest, lemma), lambda = lambdaValue)
-  }*/
 
+  def buildTrainingModel(withTest: Boolean, lemma: Boolean, smoothing: Double, savePath: String) = {
+    val dataRDD = sc.parallelize(this.buildFeatureVectors(withTest, lemma))
+    val model = NaiveBayes.train(dataRDD, lambda = smoothing)
+    if (savePath != "") {
+      model.save(sc, savePath)
+      model
+    } else model
+  }
+
+
+  //TODO finish building this method
+  def getPredictions(withTest: Boolean, lemma: Boolean, smoothing: Double, savePath: String) = {
+    //
+  }
 
 }
