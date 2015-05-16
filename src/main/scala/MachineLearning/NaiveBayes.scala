@@ -49,6 +49,10 @@ class NaiveBayes (
     this.possibleLabels(label).toDouble
   }
 
+  def revertLabel(score: Double): String = {
+    this.possibleLabels.toVector.find(key => key._2 == score).get._1
+  }
+
 
 //extract all vocabulary
   def extractVocabulary(withTest: Boolean, lemma: Boolean): scala.Vector[String] = {
@@ -153,7 +157,7 @@ class NaiveBayes (
   }
 
 
- //build a feature vector for each text
+ //get word counts for each training document
   def getDocWordCounts(withTest: Boolean, lemma: Boolean): scala.Vector[(String, String, Array[Double])] = {
     if (this.multinomial == false) {
       if (withTest) {
@@ -215,12 +219,68 @@ class NaiveBayes (
   }
 
 
-  //TODO build getTestDocWordCounts
-  def getTestDocWordCounts = {
-    //
+  //get word counts for each test document
+  def getTestDocWordCounts(withTest: Boolean, lemma: Boolean) = {
+    if (this.multinomial == false) {
+      if (withTest) {
+        for (doc <- tokenizeTestDocuments(lemma)) yield {
+          val wc = wordCount(doc._3)
+
+          (
+            doc._1,                                                             //title
+            doc._2,                                                             //label
+            (for (word <- this.extractVocabulary(withTest, lemma)) yield {
+              wc.getOrElse(word, 0).toDouble
+            }).toArray
+          )
+        }
+      } else {
+        for (doc <- tokenizeTestDocuments(lemma)) yield {
+          val wc = wordCount(doc._3)
+
+          (
+            doc._1,                                                             //title
+            doc._2,                                                             //label
+            (for (word <- this.extractVocabulary(withTest, lemma)) yield {
+              wc.getOrElse(word, 0).toDouble
+            }).toArray
+          )
+        }
+      }
+    } else {
+      if (withTest) {
+        for (doc <- tokenizeTestDocuments(lemma)) yield {
+          val wc = wordCount(doc._3)
+
+          (
+            doc._1,                                                             //title
+            doc._2,                                                             //label
+            (for (word <- this.extractVocabulary(withTest, lemma)) yield {
+              if (wc.getOrElse(word, 0) != 0) {
+                1.0
+              } else 0.0
+            }).toArray
+            )
+        }
+      } else {
+        for (doc <- tokenizeTestDocuments(lemma)) yield {
+          val wc = wordCount(doc._3)
+
+          (
+            doc._1,                                                             //title
+            doc._2,                                                             //label
+            (for (word <- this.extractVocabulary(withTest, lemma)) yield {
+              if (wc.getOrElse(word, 0) != 0) {
+                1.0
+              } else 0.0
+            }).toArray
+          )
+        }
+      }
+    }
   }
 
-
+  //build feature vector matrix
   def buildFeatureVectors(withTest: Boolean, lemma: Boolean): scala.Vector[LabeledPoint] = {
     for (doc <- this.getDocWordCounts(withTest, lemma)) yield {
       LabeledPoint(convertLabel(doc._2), Vectors.dense(doc._3))
@@ -228,12 +288,14 @@ class NaiveBayes (
   }
 
 
-  //TODO finish building this method
-  def buildTestFeatureVectors(lemma: Boolean) = {
-    //
+  //build test document feature vectors
+  def buildTestFeatureVectors(withTest: Boolean, lemma: Boolean) = {
+    for (doc <- this.getTestDocWordCounts(withTest, lemma)) yield {
+      LabeledPoint(convertLabel(doc._2), Vectors.dense(doc._3))
+    }
   }
 
-
+  //helper function
   def wordCount(tokenizedDoc: Array[String]): collection.Map[String, Int] = {
     val parallelized = sc.parallelize(tokenizedDoc)
     val wordCount = parallelized.map(word => (word, 1)).
@@ -253,8 +315,29 @@ class NaiveBayes (
 
 
   //TODO finish building this method
-  def getPredictions(withTest: Boolean, lemma: Boolean, smoothing: Double, savePath: String) = {
-    //
+  def getPredictions(nbModel: NaiveBayesModel, withTest: Boolean, lemma: Boolean, smoothing: Double, savePath: String): scala.Vector[(/*String,*/ String, String)] = {
+    for (doc <- this.buildTestFeatureVectors(withTest, lemma)) yield {
+      (
+        //title
+        revertLabel(nbModel.predict(doc.features)),
+        revertLabel(doc.label)
+      )
+    }
+
+
+  }
+
+  def getPredictions2(nbModel: NaiveBayesModel, withTest: Boolean, lemma: Boolean): scala.Vector[(String, String, String)] = {
+    val testDocs = this.testDocuments
+    val featureVector = this.buildTestFeatureVectors(withTest, lemma)
+
+    for (doc <- testDocs) yield {
+      (
+        doc._1,                                                                          //title
+        revertLabel(nbModel.predict(featureVector(testDocs.indexOf(doc)).features)),     //mlScore
+        doc._2                                                                           //actualScore
+      )
+    }
   }
 
 }
