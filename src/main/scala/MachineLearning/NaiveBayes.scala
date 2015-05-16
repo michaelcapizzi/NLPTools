@@ -17,8 +17,8 @@ import scala.collection.immutable._
  */
 class NaiveBayes (
                   val multinomial: Boolean,
-                  val trainingData: Vector[(String, String, edu.arizona.sista.processors.Document)],    //title, label, string
-                  val testDocuments: Vector[(String, String, edu.arizona.sista.processors.Document)],    //title, label, string
+                  val trainingData: Vector[(String, String, edu.arizona.sista.processors.Document)],      //title, label, string
+                  val testDocuments: Vector[(String, String, edu.arizona.sista.processors.Document)],     //title, label, string
                   val stopWords: Vector[String] = Vector(),
                   countFrequencyThreshold: Int = 0,
                   documentFrequencyThreshold: Int = 0,
@@ -28,7 +28,10 @@ class NaiveBayes (
                    ) {
 
 
+  //TODO test all
+  //TODO implement feature selection methods
   //TODO test Bernoulli v. Multinomial
+
 
   //Spark
   val conf = new SparkConf().setAppName("naiveBayes").setMaster(masterLocation)
@@ -304,11 +307,11 @@ class NaiveBayes (
   }
 
 
-  def buildTrainingModel(withTest: Boolean, lemma: Boolean, smoothing: Double, savePath: String): NaiveBayesModel = {
+  def buildTrainingModel(withTest: Boolean, lemma: Boolean, smoothing: Double): NaiveBayesModel = {
     val dataRDD = sc.parallelize(this.buildFeatureVectors(withTest, lemma))
     val model = NaiveBayes.train(dataRDD, lambda = smoothing)
-    if (savePath != "") {
-      model.save(sc, savePath)
+    if (this.naiveBayesModelPath != "") {
+      model.save(sc, this.naiveBayesModelPath)
       model
     } else model
   }
