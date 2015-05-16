@@ -15,7 +15,7 @@ import scala.collection.immutable._
 /**
  * Created by mcapizzi on 5/8/15.
  */
-class NaiveBayes (
+class NaiveBayesSpark (
                   val multinomial: Boolean,
                   val trainingData: Vector[(String, String, edu.arizona.sista.processors.Document)],      //title, label, string
                   val testDocuments: Vector[(String, String, edu.arizona.sista.processors.Document)],     //title, label, string
@@ -29,7 +29,7 @@ class NaiveBayes (
 
 
   //TODO test all
-  //TODO implement feature selection methods
+  //TODO implement feature selection methods  ==> apply at the featureVector level!!
   //TODO test Bernoulli v. Multinomial
 
 
@@ -309,7 +309,7 @@ class NaiveBayes (
 
   def buildTrainingModel(withTest: Boolean, lemma: Boolean, smoothing: Double): NaiveBayesModel = {
     val dataRDD = sc.parallelize(this.buildFeatureVectors(withTest, lemma))
-    val model = NaiveBayes.train(dataRDD, lambda = smoothing)
+    val model = org.apache.spark.mllib.classification.NaiveBayes.train(dataRDD, smoothing)
     if (this.naiveBayesModelPath != "") {
       model.save(sc, this.naiveBayesModelPath)
       model
