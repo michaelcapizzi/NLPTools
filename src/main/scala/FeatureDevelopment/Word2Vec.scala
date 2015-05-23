@@ -29,32 +29,46 @@ class Word2Vec(vectorFilePath: String, clusters: Int) {
     */
   }
 
+
   //hashMap (word -> vector)
   val w2vHashMap = buildHashMap(this.clusters)
   //reverseHashMap(word, vector)
   val w2vReverseHashMap = this.w2vHashMap.toStream
 
+
   //TODO add capacity for clusters
+  //get w2v vector for given word
   def getVector(word: String): breeze.linalg.DenseVector[Double] = {
     this.w2vHashMap(word)
   }
 
+
   //TODO add capacity for clusters
+  //get closest word for given w2v vector
   def getWord(w2vVector: breeze.linalg.DenseVector[Double]): String = {
     this.w2vReverseHashMap.find(w2v =>
-      w2v._2 == w2vVector                           //find the matching element
-    ).get._1                                        //extract the word
+      w2v._2 == w2vVector                                   //find the matching element
+    ).getOrElse(findClosestWord(w2vVector))                 //extract the exact match word or the closest word
   }
 
   ////////////////////////w2v functions////////////////////////////
 
-  def w2vSimilarity(wordOneVector: breeze.linalg.DenseVector, wordTwoVector: breeze.linalg.DenseVector): Double = {
+  //cosine similarity
+  def w2vCosSim(wordOneVector: breeze.linalg.DenseVector, wordTwoVector: breeze.linalg.DenseVector): Double = {
     val normalized = sqrt(wordOneVector dot wordOneVector) * sqrt(wordTwoVector dot wordTwoVector)
     val dotProduct = if (wordOneVector.length == 0 || wordTwoVector.length == 0) 0 else wordOneVector dot wordTwoVector
-
     if (dotProduct == 0) 0 else dotProduct / normalized
   }
 
+
+  //TODO add cluster capacity
+  //closest matching word
+  def findClosestWord(w2vVector: breeze.linalg.DenseVector[Double]): String = {
+    //
+  }
+
+
+  //add list of vectors in a list
   def foldElementwiseSum(vectorList: Vector[DenseVector[Double]]): DenseVector[Double] = {
 
     def loop(vectorList: Vector[DenseVector[Double]], accum: DenseVector[Double]): DenseVector[Double] = {
@@ -67,4 +81,7 @@ class Word2Vec(vectorFilePath: String, clusters: Int) {
     }
     loop(vectorList, vectorList.head)
   }
+
+
+
 }
