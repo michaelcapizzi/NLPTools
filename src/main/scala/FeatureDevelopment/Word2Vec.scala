@@ -1,8 +1,11 @@
 package FeatureDevelopment
 
 
+import java.io.Serializable
+
 import breeze.linalg.DenseVector
 import breeze.numerics._
+import scala.collection
 import scala.collection.parallel.mutable
 import scala.io.Source
 
@@ -13,7 +16,7 @@ class Word2Vec(vectorFilePath: String, clusters: Int) {
 
   //TODO add tuple with clusters number and cluster centroid
   def buildHashMap(clusters: Int = 0): mutable.ParHashMap[String, breeze.linalg.DenseVector[Double]] = {
-    val emptyMap = mutable.ParHashMap[String, breeze.linalg.DenseVector[Double]]()
+    val emptyMap = new mutable.ParHashMap[String, breeze.linalg.DenseVector[Double]]()
     /*if (clusters == 0) {*/
       for (line <- Source.fromFile(this.vectorFilePath).getLines) yield {
         val splitLine = line.split(" ")                                             //split string into elements
@@ -32,8 +35,8 @@ class Word2Vec(vectorFilePath: String, clusters: Int) {
 
   //hashMap (word -> vector)
   val w2vHashMap = buildHashMap(this.clusters)
-  //reverseHashMap(word, vector)
-  val w2vReverseHashMap = this.w2vHashMap.toStream
+  //stream (word, vector)
+  val w2vStream = this.w2vHashMap.toStream
 
 
   //TODO add capacity for clusters
@@ -45,16 +48,16 @@ class Word2Vec(vectorFilePath: String, clusters: Int) {
 
   //TODO add capacity for clusters
   //get closest word for given w2v vector
-  def getWord(w2vVector: breeze.linalg.DenseVector[Double]): String = {
-    this.w2vReverseHashMap.find(w2v =>
-      w2v._2 == w2vVector                                   //find the matching element
-    ).getOrElse(findClosestWord(w2vVector))                 //extract the exact match word or the closest word
+  def getWord(w2vVector: breeze.linalg.DenseVector[Double]): Serializable = {
+    this.w2vStream.find(w2v =>
+      w2v._2 == w2vVector                                      //find the matching element
+    ).getOrElse(findClosestWord(w2vVector, 1).head._1)                 //extract the exact match word or the closest word
   }
 
   ////////////////////////w2v functions////////////////////////////
 
   //cosine similarity
-  def w2vCosSim(wordOneVector: breeze.linalg.DenseVector, wordTwoVector: breeze.linalg.DenseVector): Double = {
+  def w2vCosSim(wordOneVector: breeze.linalg.DenseVector[Double], wordTwoVector: breeze.linalg.DenseVector[Double]): Double = {
     val normalized = sqrt(wordOneVector dot wordOneVector) * sqrt(wordTwoVector dot wordTwoVector)
     val dotProduct = if (wordOneVector.length == 0 || wordTwoVector.length == 0) 0 else wordOneVector dot wordTwoVector
     if (dotProduct == 0) 0 else dotProduct / normalized
@@ -63,8 +66,10 @@ class Word2Vec(vectorFilePath: String, clusters: Int) {
 
   //TODO add cluster capacity
   //closest matching word
-  def findClosestWord(w2vVector: breeze.linalg.DenseVector[Double]): String = {
-    //
+  def findClosestWord(w2vVector: breeze.linalg.DenseVector[Double], take: Int): Vector[(String, Double)] = {
+    (for (word <- w2vStream) yield {
+      word._1 -> w2vCosSim(word._2, w2vVector)
+    }).toVector.take(take)
   }
 
 
