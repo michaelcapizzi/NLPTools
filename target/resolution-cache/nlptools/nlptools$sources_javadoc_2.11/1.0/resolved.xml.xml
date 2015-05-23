@@ -4,7 +4,7 @@
 		module="nlptools$sources_javadoc_2.11"
 		revision="1.0"
 		status="integration"
-		publication="20150523142338"
+		publication="20150523155706"
 	/>
 	<configurations>
 		<conf name="compile" visibility="public" description=""/>
