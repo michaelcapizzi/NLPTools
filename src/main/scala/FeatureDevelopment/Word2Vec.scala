@@ -26,7 +26,7 @@ class Word2Vec(
     val emptyMap = new mutable.ParHashMap[String, breeze.linalg.DenseVector[Double]]()
     /*if (clusters == 0) {*/
       //for (line <- Source.fromFile(this.vectorFilePath).getLines.toVector.par) yield {
-      for (word <- vocabulary) yield {
+      for (word <- vocabulary.par) yield {
         val line = Source.fromFile(this.vectorFilePath).getLines.find(it => it.split(" ").head == word).get
         val splitLine = line.split(" ")                                             //split string into elements
         val tail = splitLine.tail.toArray.map(_.toDouble)                           //build w2v vector
