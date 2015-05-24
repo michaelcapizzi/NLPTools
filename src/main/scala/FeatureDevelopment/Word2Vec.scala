@@ -15,7 +15,7 @@ import scala.io.Source
  */
 class Word2Vec(
                 vectorFilePath: String,
-                vocabulary: Vector[String],
+                val vocabulary: Vector[String],
                 clusters: Int = 0,
                 build: Boolean = false
               ) {
@@ -47,6 +47,17 @@ class Word2Vec(
   //stream (word, vector)
   val w2vStream = this.w2vHashMap.toStream
 
+
+  //TODO test
+  def addToHashMap(word: String): mutable.ParHashMap[String, breeze.linalg.DenseVector[Double]] = {
+    val found = Source.fromFile(this.vectorFilePath).getLines.find(line =>
+      line.split(" ").head == word
+    )
+
+    val w2vVector = DenseVector(found.get.split(" ").tail.toArray.map(_.toDouble))
+
+    w2vHashMap += (word -> w2vVector)
+  }
 
 
   //TODO add capacity for clusters
@@ -111,8 +122,14 @@ class Word2Vec(
     }
   }
 
+  //TODO implement
+  def isSimilar = {}
 
-  //add list of vectors in a list
+
+  //TODO implement
+  def isNotSimilar = {}
+
+    //add list of vectors in a list
   def foldElementwiseSum(vectorList: Vector[DenseVector[Double]]): DenseVector[Double] = {
 
     def loop(vectorList: Vector[DenseVector[Double]], accum: DenseVector[Double]): DenseVector[Double] = {
