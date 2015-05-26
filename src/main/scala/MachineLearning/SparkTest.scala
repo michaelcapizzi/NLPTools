@@ -5,6 +5,7 @@ import org.apache.spark.SparkContext._
 import org.apache.spark.SparkConf
 import org.apache.log4j.Logger
 import org.apache.log4j.Level
+import org.apache.spark.mllib.feature.Word2Vec
 import org.apache.spark.mllib.regression.LabeledPoint
 import org.apache.spark.mllib.util.MLUtils
 import org.apache.spark.rdd.RDD
@@ -21,7 +22,7 @@ object SparkTest {
   Logger.getLogger("akka").setLevel(Level.OFF)
 
   //build a SparkConf and SparkContext
-  val conf = new SparkConf().setAppName("test").setMaster("local")
+  val conf = new SparkConf().setAppName("test").setMaster("local[2]")
   val sc = new SparkContext(conf)
 
   val data = 1 to 10000
@@ -68,5 +69,25 @@ object SparkTest {
         //can't handle #comments
       val test = MLUtils.loadLibSVMFile(sc, "/home/mcapizzi/Desktop/6-lexical-1/1.test")
       val train = MLUtils.loadLibSVMFile(sc, "/home/mcapizzi/Desktop/6-lexical-1/1.train")
+
+  //word2Vec
+
+      val text = sc.textFile("/home/mcapizzi/word2Vec/text8").map(line => line.split(" ").toSeq)
+
+      val w2v = new Word2Vec()
+
+      w2v.setVectorSize(200)
+
+      val model = w2v.fit(text)
+
+      //synonyms -- not really synonyms!
+        //findSynonyms(word, num of synonyms)
+
+      //transform word into its vector
+        //transform(word)
+
+
+    //TODO add k-cluster test
+
 
 }

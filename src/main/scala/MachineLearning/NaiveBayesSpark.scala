@@ -23,7 +23,7 @@ class NaiveBayesSpark (
                   countFrequencyThreshold: Int = 0,
                   documentFrequencyThreshold: Int = 0,
                   mutualInformationThreshold: Int = 0,  //what is elasticsearch mutualInformationBuilder?
-                  val masterLocation: String = "local[4]",
+                  val masterLocation: String = "local[2]",
                   val naiveBayesModelPath: String = ""
                    ) {
 
