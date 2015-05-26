@@ -5,6 +5,8 @@ import java.io.Serializable
 
 import breeze.linalg.DenseVector
 import breeze.numerics._
+import org.apache.spark.mllib.clustering.KMeans
+import org.apache.spark.{SparkContext, SparkConf}
 import scala.collection
 import scala.collection.parallel.immutable.ParVector
 import scala.collection.parallel.mutable
@@ -21,10 +23,17 @@ class Word2Vec(
               ) {
 
 
+  //Spark
+  val conf = new SparkConf().setAppName("cluster").setMaster("local[2]")
+  val sc = new SparkContext(conf)
+
+
+
+
   //TODO add tuple with clusters number and cluster centroid
-  def buildHashMap(clusters: Int = 0): mutable.ParHashMap[String, breeze.linalg.DenseVector[Double]] = {
+  def buildHashMap: mutable.ParHashMap[String, breeze.linalg.DenseVector[Double]] = {
     val emptyMap = new mutable.ParHashMap[String, breeze.linalg.DenseVector[Double]]()
-    /*if (clusters == 0) {*/
+    /*if (this.clusters == 0) {*/
       //for (line <- Source.fromFile(this.vectorFilePath).getLines.toVector.par) yield {
       for (word <- vocabulary.par) yield {
         val line = Source.fromFile(this.vectorFilePath).getLines.find(it => it.split(" ").head == word).get
@@ -35,15 +44,23 @@ class Word2Vec(
       }
       emptyMap
     /*} else {
-      //
-    }
-    emptyMap
-    */
+      for (word <- vocabulary.par) yield {
+        val line = Source.fromFile(this.vectorFilePath).getLines.find(it => it.split(" ").head == word).get
+        val splitLine = line.split(" ") //split string into elements
+        val tail = splitLine.tail.toArray.map(_.toDouble) //build w2v vector
+        val vectorizedLine = splitLine.head -> breeze.linalg.DenseVector(tail) //build map entry
+        emptyMap += vectorizedLine
+      }
+    //convert emptyMap values to mllib.Vectors
+      //val vectorList =
+    //val clusters = KMeans.train(vectorList, this.clusters, 100)    //100 iterations
+    //what to do with clusters?
+    }*/
   }
 
 
   //hashMap (word -> vector)
-  val w2vHashMap = /*if (build)*/ buildHashMap(this.clusters) /*else mutable.ParHashMap[String, breeze.linalg.DenseVector[Double]]()*/
+  val w2vHashMap = /*if (build)*/ this.buildHashMap /*else mutable.ParHashMap[String, breeze.linalg.DenseVector[Double]]()*/
   //stream (word, vector)
   val w2vStream = this.w2vHashMap.toStream
 

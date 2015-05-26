@@ -89,5 +89,7 @@ object SparkTest {
 
     //TODO add k-cluster test
 
+    //TODO add LDA test
+
 
 }
