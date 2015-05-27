@@ -23,10 +23,11 @@ class Word2Vec(
               ) {
 
 
+  /*
   //Spark
   val conf = new SparkConf().setAppName("cluster").setMaster("local[2]")
   val sc = new SparkContext(conf)
-
+  */
 
 
 
@@ -37,6 +38,7 @@ class Word2Vec(
       //for (line <- Source.fromFile(this.vectorFilePath).getLines.toVector.par) yield {
       for (word <- vocabulary.par) yield {
         val line = Source.fromFile(this.vectorFilePath).getLines.find(it => it.split(" ").head == word).get
+        //val line = Source.fromURL(this.vectorFilePath).getLines.find(it => it.split(" ").head == word).get
         val splitLine = line.split(" ")                                             //split string into elements
         val tail = splitLine.tail.toArray.map(_.toDouble)                           //build w2v vector
         val vectorizedLine = splitLine.head -> breeze.linalg.DenseVector(tail)      //build map entry
@@ -73,13 +75,13 @@ class Word2Vec(
 
     val w2vVector = DenseVector(found.get.split(" ").tail.toArray.map(_.toDouble))
 
-    w2vHashMap += (word -> w2vVector)
+    this.w2vHashMap += (word -> w2vVector)
   }
 
 
   //TODO test
   def removeFromHashMap(word: String): mutable.ParHashMap[String, breeze.linalg.DenseVector[Double]] = {
-    w2vHashMap -= word
+    this.w2vHashMap -= word
   }
 
 
@@ -145,16 +147,40 @@ class Word2Vec(
     }*/
   }
 
-  //TODO implement
-  def isSimilar = {}
+  //TODO test word not in hashmap
+  //find words most similar to given word (within cosine similarity range)
+  def isSimilar(w2vWord: String, cosSimMin: Double, take: Int): ParVector[(String, Double)] = {
+    (if (w2vHashMap.keySet.contains(w2vWord)) {
+      for (word <- w2vHashMap.keySet) yield {
+        word -> w2vCosSim(w2vHashMap(word), w2vHashMap(w2vWord))
+      }
+    } else {
+      this.addToHashMap(w2vWord)
+      for (word <- w2vHashMap.keySet) yield {
+        word -> w2vCosSim(w2vHashMap(word), w2vHashMap(w2vWord))
+      }
+    }).toVector.filter(_._2 >= cosSimMin).sortBy(_._2).reverse.par
+  }
 
 
-  //TODO implement
-  def isNotSimilar = {}
+  //TODO test
+  //find words most dissimilar to given word (within cosine similarity range)
+  def isNotSimilar(w2vWord: String, cosSimMax: Double, take: Int): ParVector[(String, Double)] = {
+    (if (w2vHashMap.keySet.contains(w2vWord)) {
+      for (word <- w2vHashMap.keySet) yield {
+        word -> w2vCosSim(w2vHashMap(word), w2vHashMap(w2vWord))
+      }
+    } else {
+      this.addToHashMap(w2vWord)
+      for (word <- w2vHashMap.keySet) yield {
+        word -> w2vCosSim(w2vHashMap(word), w2vHashMap(w2vWord))
+      }
+    }).toVector.filter(_._2 <= cosSimMax).sortBy(_._2).par
+  }
+
 
     //add list of vectors in a list
   def foldElementwiseSum(vectorList: Vector[DenseVector[Double]]): DenseVector[Double] = {
-
     def loop(vectorList: Vector[DenseVector[Double]], accum: DenseVector[Double]): DenseVector[Double] = {
       if (vectorList.tail.isEmpty) {
         accum
