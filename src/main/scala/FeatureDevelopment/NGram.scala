@@ -12,9 +12,9 @@ class NGram(
     processor.annotate(textDoc)
   }
 
-  //TODO - figure out why withPadding isn't working
+  //TODO - figure out add Padding option
   def getNGrams(gram: String, n: Int, punctuation: Boolean, withPadding: Boolean): Vector[String] = {
-    if (withPadding) {
+    /*if (withPadding) {
       if (gram == "word") {
         if (punctuation == false) {
           val words = this.textDoc.sentences.map(_.words) //get all words
@@ -54,7 +54,7 @@ class NGram(
             .map(ngram => ngram.mkString(" ")) //convert to string        }
         }
       }
-    } else {
+    } else {*/
       if (gram == "word") {
         if (punctuation == false) {
           val words = this.textDoc.sentences.map(_.words)       //get all words
@@ -86,7 +86,7 @@ class NGram(
             .map(ngram => ngram.mkString(" "))                  //convert to string
         }
       }
-    }
+    //}
   }
 
 
