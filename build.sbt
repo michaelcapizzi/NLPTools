@@ -7,8 +7,8 @@ scalaVersion := "2.11.6"
 javaOptions += "-Xmx7G"
 
 libraryDependencies ++= Seq(
-  "edu.arizona.sista" % "processors_2.11" % "5.2",        //NLP
-  "edu.arizona.sista" % "processors_2.11" % "5.2" classifier "models",
+  "edu.arizona.sista" % "processors_2.11" % "5.3",        //NLP
+  "edu.arizona.sista" % "processors_2.11" % "5.3" classifier "models",
   "org.apache.commons" % "commons-math3" % "3.3",         //math and statistics
   "org.apache.commons" % "commons-compress" % "1.9",      //??
   "org.apache.commons" % "commons-io" % "1.3.2",          //??

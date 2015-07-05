@@ -31,7 +31,7 @@ object SparkTest {
   distData.filter(_ < 10).collect
 
   //import text
-  val lines = sc.textFile("/home/mcapizzi/Github/Unbound/src/main/resources/rawText/0001AL_Garden.txt")
+  //val lines = sc.textFile("/home/mcapizzi/Github/Unbound/src/main/resources/rawText/0001AL_Garden.txt")
 
   //to use a variable after computation, use [variable].cache
     //[variable].persist will allow you to set the storage level
@@ -51,7 +51,7 @@ object SparkTest {
       //create a function that "adds to" the accumulator in certain conditions
 
   //to see the map of transformations and actions
-    lines.toDebugString
+    //lines.toDebugString
 
   //transformations --> will create a new dataset from an existing one
     //https://spark.apache.org/docs/latest/programming-guide.html#transformations

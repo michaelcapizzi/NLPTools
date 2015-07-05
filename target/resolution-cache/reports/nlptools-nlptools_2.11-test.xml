@@ -7,7 +7,7 @@
 		revision="1.0"
 		conf="test"
 		confs="compile, runtime, test, provided, optional, compile-internal, runtime-internal, test-internal, plugin, sources, docs, pom, scala-tool"
-		date="20150619071905"/>
+		date="20150705095610"/>
 	<dependencies>
 		<module organisation="org.apache.spark" name="spark-mllib_2.11">
 			<revision name="1.3.1" status="release" pubdate="20150410214806" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://spark.apache.org/" downloaded="false" searched="false" default="false" conf="default, compile, runtime, default(compile), master" position="244">
@@ -1031,7 +1031,7 @@
 		</module>
 		<module organisation="org.apache.hadoop" name="hadoop-mapreduce-client-shuffle">
 			<revision name="2.2.0" status="release" pubdate="20131006233703" resolver="public" artresolver="public" homepage="" downloaded="true" searched="true" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="198">
-				<metadata-artifact status="successful" details="" size="1675" time="2595" location="/home/mcapizzi/.ivy2/cache/org.apache.hadoop/hadoop-mapreduce-client-shuffle/ivy-2.2.0.xml" searched="true" original-local-location="/home/mcapizzi/.ivy2/cache/org.apache.hadoop/hadoop-mapreduce-client-shuffle/ivy-2.2.0.xml.original" origin-is-local="false" origin-location="http://repo1.maven.org/maven2/org/apache/hadoop/hadoop-mapreduce-client-shuffle/2.2.0/hadoop-mapreduce-client-shuffle-2.2.0.pom"/>
+				<metadata-artifact status="successful" details="" size="1675" time="304" location="/home/mcapizzi/.ivy2/cache/org.apache.hadoop/hadoop-mapreduce-client-shuffle/ivy-2.2.0.xml" searched="true" original-local-location="/home/mcapizzi/.ivy2/cache/org.apache.hadoop/hadoop-mapreduce-client-shuffle/ivy-2.2.0.xml.original" origin-is-local="false" origin-location="http://repo1.maven.org/maven2/org/apache/hadoop/hadoop-mapreduce-client-shuffle/2.2.0/hadoop-mapreduce-client-shuffle-2.2.0.pom"/>
 				<caller organisation="org.apache.hadoop" name="hadoop-mapreduce-client-jobclient" conf="compile, runtime" rev="2.2.0" rev-constraint-default="2.2.0" rev-constraint-dynamic="2.2.0" callerrev="2.2.0"/>
 				<caller organisation="org.apache.hadoop" name="hadoop-mapreduce-client-app" conf="compile, runtime" rev="2.2.0" rev-constraint-default="2.2.0" rev-constraint-dynamic="2.2.0" callerrev="2.2.0"/>
 				<artifacts>
@@ -1043,7 +1043,7 @@
 		</module>
 		<module organisation="org.apache.hadoop" name="hadoop-yarn-server-nodemanager">
 			<revision name="2.2.0" status="release" pubdate="20131006233538" resolver="public" artresolver="public" homepage="" downloaded="true" searched="true" default="false" conf="master(*), compile, runtime(*), runtime, compile(*)" position="242">
-				<metadata-artifact status="successful" details="" size="7324" time="669" location="/home/mcapizzi/.ivy2/cache/org.apache.hadoop/hadoop-yarn-server-nodemanager/ivy-2.2.0.xml" searched="true" original-local-location="/home/mcapizzi/.ivy2/cache/org.apache.hadoop/hadoop-yarn-server-nodemanager/ivy-2.2.0.xml.original" origin-is-local="false" origin-location="http://repo1.maven.org/maven2/org/apache/hadoop/hadoop-yarn-server-nodemanager/2.2.0/hadoop-yarn-server-nodemanager-2.2.0.pom"/>
+				<metadata-artifact status="successful" details="" size="7324" time="297" location="/home/mcapizzi/.ivy2/cache/org.apache.hadoop/hadoop-yarn-server-nodemanager/ivy-2.2.0.xml" searched="true" original-local-location="/home/mcapizzi/.ivy2/cache/org.apache.hadoop/hadoop-yarn-server-nodemanager/ivy-2.2.0.xml.original" origin-is-local="false" origin-location="http://repo1.maven.org/maven2/org/apache/hadoop/hadoop-yarn-server-nodemanager/2.2.0/hadoop-yarn-server-nodemanager-2.2.0.pom"/>
 				<caller organisation="org.apache.hadoop" name="hadoop-mapreduce-client-shuffle" conf="compile, runtime" rev="2.2.0" rev-constraint-default="2.2.0" rev-constraint-dynamic="2.2.0" callerrev="2.2.0"/>
 				<artifacts>
 				</artifacts>
@@ -1051,7 +1051,7 @@
 		</module>
 		<module organisation="org.apache.hadoop" name="hadoop-mapreduce-client-common">
 			<revision name="2.2.0" status="release" pubdate="20131006233659" resolver="public" artresolver="public" homepage="" downloaded="true" searched="true" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="178">
-				<metadata-artifact status="successful" details="" size="3273" time="1076" location="/home/mcapizzi/.ivy2/cache/org.apache.hadoop/hadoop-mapreduce-client-common/ivy-2.2.0.xml" searched="true" original-local-location="/home/mcapizzi/.ivy2/cache/org.apache.hadoop/hadoop-mapreduce-client-common/ivy-2.2.0.xml.original" origin-is-local="false" origin-location="http://repo1.maven.org/maven2/org/apache/hadoop/hadoop-mapreduce-client-common/2.2.0/hadoop-mapreduce-client-common-2.2.0.pom"/>
+				<metadata-artifact status="successful" details="" size="3273" time="311" location="/home/mcapizzi/.ivy2/cache/org.apache.hadoop/hadoop-mapreduce-client-common/ivy-2.2.0.xml" searched="true" original-local-location="/home/mcapizzi/.ivy2/cache/org.apache.hadoop/hadoop-mapreduce-client-common/ivy-2.2.0.xml.original" origin-is-local="false" origin-location="http://repo1.maven.org/maven2/org/apache/hadoop/hadoop-mapreduce-client-common/2.2.0/hadoop-mapreduce-client-common-2.2.0.pom"/>
 				<caller organisation="org.apache.hadoop" name="hadoop-mapreduce-client-jobclient" conf="compile, runtime" rev="2.2.0" rev-constraint-default="2.2.0" rev-constraint-dynamic="2.2.0" callerrev="2.2.0"/>
 				<caller organisation="org.apache.hadoop" name="hadoop-mapreduce-client-app" conf="compile, runtime" rev="2.2.0" rev-constraint-default="2.2.0" rev-constraint-dynamic="2.2.0" callerrev="2.2.0"/>
 				<artifacts>
@@ -1099,7 +1099,7 @@
 		</module>
 		<module organisation="org.apache.hadoop" name="hadoop-yarn-common">
 			<revision name="2.2.0" status="release" pubdate="20131006233515" resolver="public" artresolver="public" homepage="" downloaded="true" searched="true" default="false" conf="master(*), compile, runtime(*), master(compile), runtime, compile(*), master" position="179">
-				<metadata-artifact status="successful" details="" size="5032" time="2361" location="/home/mcapizzi/.ivy2/cache/org.apache.hadoop/hadoop-yarn-common/ivy-2.2.0.xml" searched="true" original-local-location="/home/mcapizzi/.ivy2/cache/org.apache.hadoop/hadoop-yarn-common/ivy-2.2.0.xml.original" origin-is-local="false" origin-location="http://repo1.maven.org/maven2/org/apache/hadoop/hadoop-yarn-common/2.2.0/hadoop-yarn-common-2.2.0.pom"/>
+				<metadata-artifact status="successful" details="" size="5032" time="302" location="/home/mcapizzi/.ivy2/cache/org.apache.hadoop/hadoop-yarn-common/ivy-2.2.0.xml" searched="true" original-local-location="/home/mcapizzi/.ivy2/cache/org.apache.hadoop/hadoop-yarn-common/ivy-2.2.0.xml.original" origin-is-local="false" origin-location="http://repo1.maven.org/maven2/org/apache/hadoop/hadoop-yarn-common/2.2.0/hadoop-yarn-common-2.2.0.pom"/>
 				<caller organisation="org.apache.hadoop" name="hadoop-yarn-client" conf="compile, runtime" rev="2.2.0" rev-constraint-default="2.2.0" rev-constraint-dynamic="2.2.0" callerrev="2.2.0"/>
 				<caller organisation="org.apache.hadoop" name="hadoop-mapreduce-client-core" conf="compile, runtime" rev="2.2.0" rev-constraint-default="2.2.0" rev-constraint-dynamic="2.2.0" callerrev="2.2.0"/>
 				<caller organisation="org.apache.hadoop" name="hadoop-yarn-server-common" conf="compile, runtime" rev="2.2.0" rev-constraint-default="2.2.0" rev-constraint-dynamic="2.2.0" callerrev="2.2.0"/>
@@ -1113,7 +1113,7 @@
 		</module>
 		<module organisation="org.apache.hadoop" name="hadoop-yarn-api">
 			<revision name="2.2.0" status="release" pubdate="20131006233452" resolver="public" artresolver="public" homepage="" downloaded="true" searched="true" default="false" conf="master(*), compile, runtime(*), master(compile), runtime, compile(*), master" position="180">
-				<metadata-artifact status="successful" details="" size="2956" time="4031" location="/home/mcapizzi/.ivy2/cache/org.apache.hadoop/hadoop-yarn-api/ivy-2.2.0.xml" searched="true" original-local-location="/home/mcapizzi/.ivy2/cache/org.apache.hadoop/hadoop-yarn-api/ivy-2.2.0.xml.original" origin-is-local="false" origin-location="http://repo1.maven.org/maven2/org/apache/hadoop/hadoop-yarn-api/2.2.0/hadoop-yarn-api-2.2.0.pom"/>
+				<metadata-artifact status="successful" details="" size="2956" time="320" location="/home/mcapizzi/.ivy2/cache/org.apache.hadoop/hadoop-yarn-api/ivy-2.2.0.xml" searched="true" original-local-location="/home/mcapizzi/.ivy2/cache/org.apache.hadoop/hadoop-yarn-api/ivy-2.2.0.xml.original" origin-is-local="false" origin-location="http://repo1.maven.org/maven2/org/apache/hadoop/hadoop-yarn-api/2.2.0/hadoop-yarn-api-2.2.0.pom"/>
 				<caller organisation="org.apache.hadoop" name="hadoop-yarn-client" conf="compile, runtime" rev="2.2.0" rev-constraint-default="2.2.0" rev-constraint-dynamic="2.2.0" callerrev="2.2.0"/>
 				<caller organisation="org.apache.hadoop" name="hadoop-yarn-common" conf="compile, runtime" rev="2.2.0" rev-constraint-default="2.2.0" rev-constraint-dynamic="2.2.0" callerrev="2.2.0"/>
 				<caller organisation="org.apache.hadoop" name="hadoop-client" conf="compile, runtime" rev="2.2.0" rev-constraint-default="2.2.0" rev-constraint-dynamic="2.2.0" callerrev="2.2.0"/>
@@ -1900,7 +1900,7 @@
 		</module>
 		<module organisation="org.codehaus.plexus" name="plexus-component-api">
 			<revision name="1.0-alpha-16" status="release" pubdate="20070123081544" resolver="public" artresolver="public" homepage="" downloaded="true" searched="true" default="false" conf="master(*), compile, runtime(*), runtime, compile(*), master" position="135">
-				<metadata-artifact status="successful" details="" size="2215" time="3748" location="/home/mcapizzi/.ivy2/cache/org.codehaus.plexus/plexus-component-api/ivy-1.0-alpha-16.xml" searched="true" original-local-location="/home/mcapizzi/.ivy2/cache/org.codehaus.plexus/plexus-component-api/ivy-1.0-alpha-16.xml.original" origin-is-local="false" origin-location="http://repo1.maven.org/maven2/org/codehaus/plexus/plexus-component-api/1.0-alpha-16/plexus-component-api-1.0-alpha-16.pom"/>
+				<metadata-artifact status="successful" details="" size="2215" time="315" location="/home/mcapizzi/.ivy2/cache/org.codehaus.plexus/plexus-component-api/ivy-1.0-alpha-16.xml" searched="true" original-local-location="/home/mcapizzi/.ivy2/cache/org.codehaus.plexus/plexus-component-api/ivy-1.0-alpha-16.xml.original" origin-is-local="false" origin-location="http://repo1.maven.org/maven2/org/codehaus/plexus/plexus-component-api/1.0-alpha-16/plexus-component-api-1.0-alpha-16.pom"/>
 				<caller organisation="org.codehaus.plexus" name="plexus-interactivity-api" conf="compile, runtime" rev="1.0-alpha-16" rev-constraint-default="1.0-alpha-16" rev-constraint-dynamic="1.0-alpha-16" callerrev="1.0-alpha-6"/>
 				<artifacts>
 					<artifact name="plexus-component-api" type="jar" ext="jar" status="no" details="" size="33149" time="0" location="/home/mcapizzi/.ivy2/cache/org.codehaus.plexus/plexus-component-api/jars/plexus-component-api-1.0-alpha-16.jar">
@@ -2043,7 +2043,7 @@
 		</module>
 		<module organisation="org.codehaus.plexus" name="plexus-container-default">
 			<revision name="1.0-alpha-30" status="release" pubdate="20070730170345" resolver="public" artresolver="public" homepage="" downloaded="true" searched="true" default="false" conf="master(*), compile, runtime(*), runtime, compile(*), master" position="142">
-				<metadata-artifact status="successful" details="" size="3477" time="4836" location="/home/mcapizzi/.ivy2/cache/org.codehaus.plexus/plexus-container-default/ivy-1.0-alpha-30.xml" searched="true" original-local-location="/home/mcapizzi/.ivy2/cache/org.codehaus.plexus/plexus-container-default/ivy-1.0-alpha-30.xml.original" origin-is-local="false" origin-location="http://repo1.maven.org/maven2/org/codehaus/plexus/plexus-container-default/1.0-alpha-30/plexus-container-default-1.0-alpha-30.pom"/>
+				<metadata-artifact status="successful" details="" size="3477" time="310" location="/home/mcapizzi/.ivy2/cache/org.codehaus.plexus/plexus-container-default/ivy-1.0-alpha-30.xml" searched="true" original-local-location="/home/mcapizzi/.ivy2/cache/org.codehaus.plexus/plexus-container-default/ivy-1.0-alpha-30.xml.original" origin-is-local="false" origin-location="http://repo1.maven.org/maven2/org/codehaus/plexus/plexus-container-default/1.0-alpha-30/plexus-container-default-1.0-alpha-30.pom"/>
 				<caller organisation="org.apache.maven" name="maven-profile" conf="compile, runtime" rev="1.0-alpha-9-stable-1" rev-constraint-default="1.0-alpha-9-stable-1" rev-constraint-dynamic="1.0-alpha-9-stable-1" callerrev="2.2.1"/>
 				<caller organisation="org.apache.maven" name="maven-plugin-parameter-documenter" conf="compile, runtime" rev="1.0-alpha-9-stable-1" rev-constraint-default="1.0-alpha-9-stable-1" rev-constraint-dynamic="1.0-alpha-9-stable-1" callerrev="2.2.1"/>
 				<caller organisation="org.apache.maven.doxia" name="doxia-logging-api" conf="compile, runtime" rev="1.0-alpha-30" rev-constraint-default="1.0-alpha-30" rev-constraint-dynamic="1.0-alpha-30" callerrev="1.1.2"/>
@@ -2476,7 +2476,7 @@
 		</module>
 		<module organisation="com.github.fommil.netlib" name="netlib-native_system-win-i686">
 			<revision name="1.1" status="release" pubdate="20131011154118" resolver="public" artresolver="public" homepage="" downloaded="true" searched="true" default="false" conf="master(*), compile, runtime(*), runtime, compile(*), master" position="94">
-				<metadata-artifact status="successful" details="" size="5271" time="2072" location="/home/mcapizzi/.ivy2/cache/com.github.fommil.netlib/netlib-native_system-win-i686/ivy-1.1.xml" searched="true" original-local-location="/home/mcapizzi/.ivy2/cache/com.github.fommil.netlib/netlib-native_system-win-i686/ivy-1.1.xml.original" origin-is-local="false" origin-location="http://repo1.maven.org/maven2/com/github/fommil/netlib/netlib-native_system-win-i686/1.1/netlib-native_system-win-i686-1.1.pom"/>
+				<metadata-artifact status="successful" details="" size="5271" time="308" location="/home/mcapizzi/.ivy2/cache/com.github.fommil.netlib/netlib-native_system-win-i686/ivy-1.1.xml" searched="true" original-local-location="/home/mcapizzi/.ivy2/cache/com.github.fommil.netlib/netlib-native_system-win-i686/ivy-1.1.xml.original" origin-is-local="false" origin-location="http://repo1.maven.org/maven2/com/github/fommil/netlib/netlib-native_system-win-i686/1.1/netlib-native_system-win-i686-1.1.pom"/>
 				<caller organisation="com.github.fommil.netlib" name="all" conf="compile, runtime" rev="1.1" rev-constraint-default="1.1" rev-constraint-dynamic="1.1" callerrev="1.1.2"/>
 				<artifacts>
 					<artifact name="netlib-native_system-win-i686" type="jar" ext="jar" extra-classifier="natives" status="no" details="" size="561459" time="0" location="/home/mcapizzi/.ivy2/cache/com.github.fommil.netlib/netlib-native_system-win-i686/jars/netlib-native_system-win-i686-1.1-natives.jar">
@@ -2487,7 +2487,7 @@
 		</module>
 		<module organisation="com.github.fommil.netlib" name="netlib-native_system-win-x86_64">
 			<revision name="1.1" status="release" pubdate="20131011154207" resolver="public" artresolver="public" homepage="" downloaded="true" searched="true" default="false" conf="master(*), compile, runtime(*), runtime, compile(*), master" position="93">
-				<metadata-artifact status="successful" details="" size="5130" time="1785" location="/home/mcapizzi/.ivy2/cache/com.github.fommil.netlib/netlib-native_system-win-x86_64/ivy-1.1.xml" searched="true" original-local-location="/home/mcapizzi/.ivy2/cache/com.github.fommil.netlib/netlib-native_system-win-x86_64/ivy-1.1.xml.original" origin-is-local="false" origin-location="http://repo1.maven.org/maven2/com/github/fommil/netlib/netlib-native_system-win-x86_64/1.1/netlib-native_system-win-x86_64-1.1.pom"/>
+				<metadata-artifact status="successful" details="" size="5130" time="316" location="/home/mcapizzi/.ivy2/cache/com.github.fommil.netlib/netlib-native_system-win-x86_64/ivy-1.1.xml" searched="true" original-local-location="/home/mcapizzi/.ivy2/cache/com.github.fommil.netlib/netlib-native_system-win-x86_64/ivy-1.1.xml.original" origin-is-local="false" origin-location="http://repo1.maven.org/maven2/com/github/fommil/netlib/netlib-native_system-win-x86_64/1.1/netlib-native_system-win-x86_64-1.1.pom"/>
 				<caller organisation="com.github.fommil.netlib" name="all" conf="compile, runtime" rev="1.1" rev-constraint-default="1.1" rev-constraint-dynamic="1.1" callerrev="1.1.2"/>
 				<artifacts>
 					<artifact name="netlib-native_system-win-x86_64" type="jar" ext="jar" extra-classifier="natives" status="no" details="" size="637428" time="0" location="/home/mcapizzi/.ivy2/cache/com.github.fommil.netlib/netlib-native_system-win-x86_64/jars/netlib-native_system-win-x86_64-1.1-natives.jar">
@@ -2498,7 +2498,7 @@
 		</module>
 		<module organisation="com.github.fommil.netlib" name="netlib-native_system-linux-armhf">
 			<revision name="1.1" status="release" pubdate="20131011163120" resolver="public" artresolver="public" homepage="" downloaded="true" searched="true" default="false" conf="master(*), compile, runtime(*), runtime, compile(*), master" position="92">
-				<metadata-artifact status="successful" details="" size="4780" time="5559" location="/home/mcapizzi/.ivy2/cache/com.github.fommil.netlib/netlib-native_system-linux-armhf/ivy-1.1.xml" searched="true" original-local-location="/home/mcapizzi/.ivy2/cache/com.github.fommil.netlib/netlib-native_system-linux-armhf/ivy-1.1.xml.original" origin-is-local="false" origin-location="http://repo1.maven.org/maven2/com/github/fommil/netlib/netlib-native_system-linux-armhf/1.1/netlib-native_system-linux-armhf-1.1.pom"/>
+				<metadata-artifact status="successful" details="" size="4780" time="305" location="/home/mcapizzi/.ivy2/cache/com.github.fommil.netlib/netlib-native_system-linux-armhf/ivy-1.1.xml" searched="true" original-local-location="/home/mcapizzi/.ivy2/cache/com.github.fommil.netlib/netlib-native_system-linux-armhf/ivy-1.1.xml.original" origin-is-local="false" origin-location="http://repo1.maven.org/maven2/com/github/fommil/netlib/netlib-native_system-linux-armhf/1.1/netlib-native_system-linux-armhf-1.1.pom"/>
 				<caller organisation="com.github.fommil.netlib" name="all" conf="compile, runtime" rev="1.1" rev-constraint-default="1.1" rev-constraint-dynamic="1.1" callerrev="1.1.2"/>
 				<artifacts>
 					<artifact name="netlib-native_system-linux-armhf" type="jar" ext="jar" extra-classifier="natives" status="no" details="" size="310891" time="0" location="/home/mcapizzi/.ivy2/cache/com.github.fommil.netlib/netlib-native_system-linux-armhf/jars/netlib-native_system-linux-armhf-1.1-natives.jar">
@@ -2509,7 +2509,7 @@
 		</module>
 		<module organisation="com.github.fommil.netlib" name="netlib-native_system-linux-i686">
 			<revision name="1.1" status="release" pubdate="20131011163027" resolver="public" artresolver="public" homepage="" downloaded="true" searched="true" default="false" conf="master(*), compile, runtime(*), runtime, compile(*), master" position="91">
-				<metadata-artifact status="successful" details="" size="4869" time="6654" location="/home/mcapizzi/.ivy2/cache/com.github.fommil.netlib/netlib-native_system-linux-i686/ivy-1.1.xml" searched="true" original-local-location="/home/mcapizzi/.ivy2/cache/com.github.fommil.netlib/netlib-native_system-linux-i686/ivy-1.1.xml.original" origin-is-local="false" origin-location="http://repo1.maven.org/maven2/com/github/fommil/netlib/netlib-native_system-linux-i686/1.1/netlib-native_system-linux-i686-1.1.pom"/>
+				<metadata-artifact status="successful" details="" size="4869" time="300" location="/home/mcapizzi/.ivy2/cache/com.github.fommil.netlib/netlib-native_system-linux-i686/ivy-1.1.xml" searched="true" original-local-location="/home/mcapizzi/.ivy2/cache/com.github.fommil.netlib/netlib-native_system-linux-i686/ivy-1.1.xml.original" origin-is-local="false" origin-location="http://repo1.maven.org/maven2/com/github/fommil/netlib/netlib-native_system-linux-i686/1.1/netlib-native_system-linux-i686-1.1.pom"/>
 				<caller organisation="com.github.fommil.netlib" name="all" conf="compile, runtime" rev="1.1" rev-constraint-default="1.1" rev-constraint-dynamic="1.1" callerrev="1.1.2"/>
 				<artifacts>
 					<artifact name="netlib-native_system-linux-i686" type="jar" ext="jar" extra-classifier="natives" status="no" details="" size="435365" time="0" location="/home/mcapizzi/.ivy2/cache/com.github.fommil.netlib/netlib-native_system-linux-i686/jars/netlib-native_system-linux-i686-1.1-natives.jar">
@@ -2520,7 +2520,7 @@
 		</module>
 		<module organisation="com.github.fommil.netlib" name="netlib-native_system-linux-x86_64">
 			<revision name="1.1" status="release" pubdate="20131011162927" resolver="public" artresolver="public" homepage="" downloaded="true" searched="true" default="false" conf="master(*), compile, runtime(*), runtime, compile(*), master" position="90">
-				<metadata-artifact status="successful" details="" size="3930" time="766" location="/home/mcapizzi/.ivy2/cache/com.github.fommil.netlib/netlib-native_system-linux-x86_64/ivy-1.1.xml" searched="true" original-local-location="/home/mcapizzi/.ivy2/cache/com.github.fommil.netlib/netlib-native_system-linux-x86_64/ivy-1.1.xml.original" origin-is-local="false" origin-location="http://repo1.maven.org/maven2/com/github/fommil/netlib/netlib-native_system-linux-x86_64/1.1/netlib-native_system-linux-x86_64-1.1.pom"/>
+				<metadata-artifact status="successful" details="" size="3930" time="312" location="/home/mcapizzi/.ivy2/cache/com.github.fommil.netlib/netlib-native_system-linux-x86_64/ivy-1.1.xml" searched="true" original-local-location="/home/mcapizzi/.ivy2/cache/com.github.fommil.netlib/netlib-native_system-linux-x86_64/ivy-1.1.xml.original" origin-is-local="false" origin-location="http://repo1.maven.org/maven2/com/github/fommil/netlib/netlib-native_system-linux-x86_64/1.1/netlib-native_system-linux-x86_64-1.1.pom"/>
 				<caller organisation="com.github.fommil.netlib" name="all" conf="compile, runtime" rev="1.1" rev-constraint-default="1.1" rev-constraint-dynamic="1.1" callerrev="1.1.2"/>
 				<artifacts>
 					<artifact name="netlib-native_system-linux-x86_64" type="jar" ext="jar" extra-classifier="natives" status="no" details="" size="458605" time="0" location="/home/mcapizzi/.ivy2/cache/com.github.fommil.netlib/netlib-native_system-linux-x86_64/jars/netlib-native_system-linux-x86_64-1.1-natives.jar">
@@ -2531,7 +2531,7 @@
 		</module>
 		<module organisation="com.github.fommil.netlib" name="netlib-native_system-osx-x86_64">
 			<revision name="1.1" status="release" pubdate="20131011154035" resolver="public" artresolver="public" homepage="" downloaded="true" searched="true" default="false" conf="master(*), compile, runtime(*), runtime, compile(*), master" position="88">
-				<metadata-artifact status="successful" details="" size="3912" time="1310" location="/home/mcapizzi/.ivy2/cache/com.github.fommil.netlib/netlib-native_system-osx-x86_64/ivy-1.1.xml" searched="true" original-local-location="/home/mcapizzi/.ivy2/cache/com.github.fommil.netlib/netlib-native_system-osx-x86_64/ivy-1.1.xml.original" origin-is-local="false" origin-location="http://repo1.maven.org/maven2/com/github/fommil/netlib/netlib-native_system-osx-x86_64/1.1/netlib-native_system-osx-x86_64-1.1.pom"/>
+				<metadata-artifact status="successful" details="" size="3912" time="297" location="/home/mcapizzi/.ivy2/cache/com.github.fommil.netlib/netlib-native_system-osx-x86_64/ivy-1.1.xml" searched="true" original-local-location="/home/mcapizzi/.ivy2/cache/com.github.fommil.netlib/netlib-native_system-osx-x86_64/ivy-1.1.xml.original" origin-is-local="false" origin-location="http://repo1.maven.org/maven2/com/github/fommil/netlib/netlib-native_system-osx-x86_64/1.1/netlib-native_system-osx-x86_64-1.1.pom"/>
 				<caller organisation="com.github.fommil.netlib" name="all" conf="compile, runtime" rev="1.1" rev-constraint-default="1.1" rev-constraint-dynamic="1.1" callerrev="1.1.2"/>
 				<artifacts>
 					<artifact name="netlib-native_system-osx-x86_64" type="jar" ext="jar" extra-classifier="natives" status="no" details="" size="553993" time="0" location="/home/mcapizzi/.ivy2/cache/com.github.fommil.netlib/netlib-native_system-osx-x86_64/jars/netlib-native_system-osx-x86_64-1.1-natives.jar">
@@ -2542,7 +2542,7 @@
 		</module>
 		<module organisation="com.github.fommil.netlib" name="native_system-java">
 			<revision name="1.1" status="release" pubdate="20131011153956" resolver="public" artresolver="public" homepage="" downloaded="true" searched="true" default="false" conf="master(*), compile, runtime(*), runtime, compile(*), master" position="89">
-				<metadata-artifact status="successful" details="" size="3988" time="878" location="/home/mcapizzi/.ivy2/cache/com.github.fommil.netlib/native_system-java/ivy-1.1.xml" searched="true" original-local-location="/home/mcapizzi/.ivy2/cache/com.github.fommil.netlib/native_system-java/ivy-1.1.xml.original" origin-is-local="false" origin-location="http://repo1.maven.org/maven2/com/github/fommil/netlib/native_system-java/1.1/native_system-java-1.1.pom"/>
+				<metadata-artifact status="successful" details="" size="3988" time="301" location="/home/mcapizzi/.ivy2/cache/com.github.fommil.netlib/native_system-java/ivy-1.1.xml" searched="true" original-local-location="/home/mcapizzi/.ivy2/cache/com.github.fommil.netlib/native_system-java/ivy-1.1.xml.original" origin-is-local="false" origin-location="http://repo1.maven.org/maven2/com/github/fommil/netlib/native_system-java/1.1/native_system-java-1.1.pom"/>
 				<caller organisation="com.github.fommil.netlib" name="netlib-native_system-linux-x86_64" conf="compile, runtime" rev="1.1" rev-constraint-default="1.1" rev-constraint-dynamic="1.1" callerrev="1.1"/>
 				<caller organisation="com.github.fommil.netlib" name="netlib-native_system-win-i686" conf="compile, runtime" rev="1.1" rev-constraint-default="1.1" rev-constraint-dynamic="1.1" callerrev="1.1"/>
 				<caller organisation="com.github.fommil.netlib" name="netlib-native_system-linux-i686" conf="compile, runtime" rev="1.1" rev-constraint-default="1.1" rev-constraint-dynamic="1.1" callerrev="1.1"/>
@@ -2558,7 +2558,7 @@
 		</module>
 		<module organisation="com.github.fommil.netlib" name="netlib-native_ref-linux-armhf">
 			<revision name="1.1" status="release" pubdate="20131011161624" resolver="public" artresolver="public" homepage="" downloaded="true" searched="true" default="false" conf="master(*), compile, runtime(*), runtime, compile(*), master" position="87">
-				<metadata-artifact status="successful" details="" size="3897" time="5856" location="/home/mcapizzi/.ivy2/cache/com.github.fommil.netlib/netlib-native_ref-linux-armhf/ivy-1.1.xml" searched="true" original-local-location="/home/mcapizzi/.ivy2/cache/com.github.fommil.netlib/netlib-native_ref-linux-armhf/ivy-1.1.xml.original" origin-is-local="false" origin-location="http://repo1.maven.org/maven2/com/github/fommil/netlib/netlib-native_ref-linux-armhf/1.1/netlib-native_ref-linux-armhf-1.1.pom"/>
+				<metadata-artifact status="successful" details="" size="3897" time="322" location="/home/mcapizzi/.ivy2/cache/com.github.fommil.netlib/netlib-native_ref-linux-armhf/ivy-1.1.xml" searched="true" original-local-location="/home/mcapizzi/.ivy2/cache/com.github.fommil.netlib/netlib-native_ref-linux-armhf/ivy-1.1.xml.original" origin-is-local="false" origin-location="http://repo1.maven.org/maven2/com/github/fommil/netlib/netlib-native_ref-linux-armhf/1.1/netlib-native_ref-linux-armhf-1.1.pom"/>
 				<caller organisation="com.github.fommil.netlib" name="all" conf="compile, runtime" rev="1.1" rev-constraint-default="1.1" rev-constraint-dynamic="1.1" callerrev="1.1.2"/>
 				<artifacts>
 					<artifact name="netlib-native_ref-linux-armhf" type="jar" ext="jar" extra-classifier="natives" status="no" details="" size="1208080" time="0" location="/home/mcapizzi/.ivy2/cache/com.github.fommil.netlib/netlib-native_ref-linux-armhf/jars/netlib-native_ref-linux-armhf-1.1-natives.jar">
@@ -2569,7 +2569,7 @@
 		</module>
 		<module organisation="com.github.fommil.netlib" name="netlib-native_ref-win-i686">
 			<revision name="1.1" status="release" pubdate="20131011153716" resolver="public" artresolver="public" homepage="" downloaded="true" searched="true" default="false" conf="master(*), compile, runtime(*), runtime, compile(*), master" position="86">
-				<metadata-artifact status="successful" details="" size="4471" time="7342" location="/home/mcapizzi/.ivy2/cache/com.github.fommil.netlib/netlib-native_ref-win-i686/ivy-1.1.xml" searched="true" original-local-location="/home/mcapizzi/.ivy2/cache/com.github.fommil.netlib/netlib-native_ref-win-i686/ivy-1.1.xml.original" origin-is-local="false" origin-location="http://repo1.maven.org/maven2/com/github/fommil/netlib/netlib-native_ref-win-i686/1.1/netlib-native_ref-win-i686-1.1.pom"/>
+				<metadata-artifact status="successful" details="" size="4471" time="297" location="/home/mcapizzi/.ivy2/cache/com.github.fommil.netlib/netlib-native_ref-win-i686/ivy-1.1.xml" searched="true" original-local-location="/home/mcapizzi/.ivy2/cache/com.github.fommil.netlib/netlib-native_ref-win-i686/ivy-1.1.xml.original" origin-is-local="false" origin-location="http://repo1.maven.org/maven2/com/github/fommil/netlib/netlib-native_ref-win-i686/1.1/netlib-native_ref-win-i686-1.1.pom"/>
 				<caller organisation="com.github.fommil.netlib" name="all" conf="compile, runtime" rev="1.1" rev-constraint-default="1.1" rev-constraint-dynamic="1.1" callerrev="1.1.2"/>
 				<artifacts>
 					<artifact name="netlib-native_ref-win-i686" type="jar" ext="jar" extra-classifier="natives" status="no" details="" size="1826785" time="0" location="/home/mcapizzi/.ivy2/cache/com.github.fommil.netlib/netlib-native_ref-win-i686/jars/netlib-native_ref-win-i686-1.1-natives.jar">
@@ -2580,7 +2580,7 @@
 		</module>
 		<module organisation="com.github.fommil.netlib" name="netlib-native_ref-win-x86_64">
 			<revision name="1.1" status="release" pubdate="20131011153904" resolver="public" artresolver="public" homepage="" downloaded="true" searched="true" default="false" conf="master(*), compile, runtime(*), runtime, compile(*), master" position="85">
-				<metadata-artifact status="successful" details="" size="4378" time="4103" location="/home/mcapizzi/.ivy2/cache/com.github.fommil.netlib/netlib-native_ref-win-x86_64/ivy-1.1.xml" searched="true" original-local-location="/home/mcapizzi/.ivy2/cache/com.github.fommil.netlib/netlib-native_ref-win-x86_64/ivy-1.1.xml.original" origin-is-local="false" origin-location="http://repo1.maven.org/maven2/com/github/fommil/netlib/netlib-native_ref-win-x86_64/1.1/netlib-native_ref-win-x86_64-1.1.pom"/>
+				<metadata-artifact status="successful" details="" size="4378" time="306" location="/home/mcapizzi/.ivy2/cache/com.github.fommil.netlib/netlib-native_ref-win-x86_64/ivy-1.1.xml" searched="true" original-local-location="/home/mcapizzi/.ivy2/cache/com.github.fommil.netlib/netlib-native_ref-win-x86_64/ivy-1.1.xml.original" origin-is-local="false" origin-location="http://repo1.maven.org/maven2/com/github/fommil/netlib/netlib-native_ref-win-x86_64/1.1/netlib-native_ref-win-x86_64-1.1.pom"/>
 				<caller organisation="com.github.fommil.netlib" name="all" conf="compile, runtime" rev="1.1" rev-constraint-default="1.1" rev-constraint-dynamic="1.1" callerrev="1.1.2"/>
 				<artifacts>
 					<artifact name="netlib-native_ref-win-x86_64" type="jar" ext="jar" extra-classifier="natives" status="no" details="" size="2305169" time="0" location="/home/mcapizzi/.ivy2/cache/com.github.fommil.netlib/netlib-native_ref-win-x86_64/jars/netlib-native_ref-win-x86_64-1.1-natives.jar">
@@ -2591,7 +2591,7 @@
 		</module>
 		<module organisation="com.github.fommil.netlib" name="netlib-native_ref-linux-i686">
 			<revision name="1.1" status="release" pubdate="20131011161458" resolver="public" artresolver="public" homepage="" downloaded="true" searched="true" default="false" conf="master(*), compile, runtime(*), runtime, compile(*), master" position="84">
-				<metadata-artifact status="successful" details="" size="3739" time="2045" location="/home/mcapizzi/.ivy2/cache/com.github.fommil.netlib/netlib-native_ref-linux-i686/ivy-1.1.xml" searched="true" original-local-location="/home/mcapizzi/.ivy2/cache/com.github.fommil.netlib/netlib-native_ref-linux-i686/ivy-1.1.xml.original" origin-is-local="false" origin-location="http://repo1.maven.org/maven2/com/github/fommil/netlib/netlib-native_ref-linux-i686/1.1/netlib-native_ref-linux-i686-1.1.pom"/>
+				<metadata-artifact status="successful" details="" size="3739" time="420" location="/home/mcapizzi/.ivy2/cache/com.github.fommil.netlib/netlib-native_ref-linux-i686/ivy-1.1.xml" searched="true" original-local-location="/home/mcapizzi/.ivy2/cache/com.github.fommil.netlib/netlib-native_ref-linux-i686/ivy-1.1.xml.original" origin-is-local="false" origin-location="http://repo1.maven.org/maven2/com/github/fommil/netlib/netlib-native_ref-linux-i686/1.1/netlib-native_ref-linux-i686-1.1.pom"/>
 				<caller organisation="com.github.fommil.netlib" name="all" conf="compile, runtime" rev="1.1" rev-constraint-default="1.1" rev-constraint-dynamic="1.1" callerrev="1.1.2"/>
 				<artifacts>
 					<artifact name="netlib-native_ref-linux-i686" type="jar" ext="jar" extra-classifier="natives" status="no" details="" size="1489507" time="0" location="/home/mcapizzi/.ivy2/cache/com.github.fommil.netlib/netlib-native_ref-linux-i686/jars/netlib-native_ref-linux-i686-1.1-natives.jar">
@@ -2602,7 +2602,7 @@
 		</module>
 		<module organisation="com.github.fommil.netlib" name="netlib-native_ref-linux-x86_64">
 			<revision name="1.1" status="release" pubdate="20131011161310" resolver="public" artresolver="public" homepage="" downloaded="true" searched="true" default="false" conf="master(*), compile, runtime(*), runtime, compile(*), master" position="83">
-				<metadata-artifact status="successful" details="" size="3309" time="789" location="/home/mcapizzi/.ivy2/cache/com.github.fommil.netlib/netlib-native_ref-linux-x86_64/ivy-1.1.xml" searched="true" original-local-location="/home/mcapizzi/.ivy2/cache/com.github.fommil.netlib/netlib-native_ref-linux-x86_64/ivy-1.1.xml.original" origin-is-local="false" origin-location="http://repo1.maven.org/maven2/com/github/fommil/netlib/netlib-native_ref-linux-x86_64/1.1/netlib-native_ref-linux-x86_64-1.1.pom"/>
+				<metadata-artifact status="successful" details="" size="3309" time="314" location="/home/mcapizzi/.ivy2/cache/com.github.fommil.netlib/netlib-native_ref-linux-x86_64/ivy-1.1.xml" searched="true" original-local-location="/home/mcapizzi/.ivy2/cache/com.github.fommil.netlib/netlib-native_ref-linux-x86_64/ivy-1.1.xml.original" origin-is-local="false" origin-location="http://repo1.maven.org/maven2/com/github/fommil/netlib/netlib-native_ref-linux-x86_64/1.1/netlib-native_ref-linux-x86_64-1.1.pom"/>
 				<caller organisation="com.github.fommil.netlib" name="all" conf="compile, runtime" rev="1.1" rev-constraint-default="1.1" rev-constraint-dynamic="1.1" callerrev="1.1.2"/>
 				<artifacts>
 					<artifact name="netlib-native_ref-linux-x86_64" type="jar" ext="jar" extra-classifier="natives" status="no" details="" size="1749371" time="0" location="/home/mcapizzi/.ivy2/cache/com.github.fommil.netlib/netlib-native_ref-linux-x86_64/jars/netlib-native_ref-linux-x86_64-1.1-natives.jar">
@@ -2613,7 +2613,7 @@
 		</module>
 		<module organisation="com.github.fommil.netlib" name="netlib-native_ref-osx-x86_64">
 			<revision name="1.1" status="release" pubdate="20131011153537" resolver="public" artresolver="public" homepage="" downloaded="true" searched="true" default="false" conf="master(*), compile, runtime(*), runtime, compile(*), master" position="80">
-				<metadata-artifact status="successful" details="" size="3620" time="2272" location="/home/mcapizzi/.ivy2/cache/com.github.fommil.netlib/netlib-native_ref-osx-x86_64/ivy-1.1.xml" searched="true" original-local-location="/home/mcapizzi/.ivy2/cache/com.github.fommil.netlib/netlib-native_ref-osx-x86_64/ivy-1.1.xml.original" origin-is-local="false" origin-location="http://repo1.maven.org/maven2/com/github/fommil/netlib/netlib-native_ref-osx-x86_64/1.1/netlib-native_ref-osx-x86_64-1.1.pom"/>
+				<metadata-artifact status="successful" details="" size="3620" time="318" location="/home/mcapizzi/.ivy2/cache/com.github.fommil.netlib/netlib-native_ref-osx-x86_64/ivy-1.1.xml" searched="true" original-local-location="/home/mcapizzi/.ivy2/cache/com.github.fommil.netlib/netlib-native_ref-osx-x86_64/ivy-1.1.xml.original" origin-is-local="false" origin-location="http://repo1.maven.org/maven2/com/github/fommil/netlib/netlib-native_ref-osx-x86_64/1.1/netlib-native_ref-osx-x86_64-1.1.pom"/>
 				<caller organisation="com.github.fommil.netlib" name="all" conf="compile, runtime" rev="1.1" rev-constraint-default="1.1" rev-constraint-dynamic="1.1" callerrev="1.1.2"/>
 				<artifacts>
 					<artifact name="netlib-native_ref-osx-x86_64" type="jar" ext="jar" extra-classifier="natives" status="no" details="" size="1839499" time="0" location="/home/mcapizzi/.ivy2/cache/com.github.fommil.netlib/netlib-native_ref-osx-x86_64/jars/netlib-native_ref-osx-x86_64-1.1-natives.jar">
@@ -2624,7 +2624,7 @@
 		</module>
 		<module organisation="com.github.fommil.netlib" name="native_ref-java">
 			<revision name="1.1" status="release" pubdate="20131011153421" resolver="public" artresolver="public" homepage="" downloaded="true" searched="true" default="false" conf="master(*), compile, runtime(*), runtime, compile(*), master" position="81">
-				<metadata-artifact status="successful" details="" size="3973" time="2395" location="/home/mcapizzi/.ivy2/cache/com.github.fommil.netlib/native_ref-java/ivy-1.1.xml" searched="true" original-local-location="/home/mcapizzi/.ivy2/cache/com.github.fommil.netlib/native_ref-java/ivy-1.1.xml.original" origin-is-local="false" origin-location="http://repo1.maven.org/maven2/com/github/fommil/netlib/native_ref-java/1.1/native_ref-java-1.1.pom"/>
+				<metadata-artifact status="successful" details="" size="3973" time="305" location="/home/mcapizzi/.ivy2/cache/com.github.fommil.netlib/native_ref-java/ivy-1.1.xml" searched="true" original-local-location="/home/mcapizzi/.ivy2/cache/com.github.fommil.netlib/native_ref-java/ivy-1.1.xml.original" origin-is-local="false" origin-location="http://repo1.maven.org/maven2/com/github/fommil/netlib/native_ref-java/1.1/native_ref-java-1.1.pom"/>
 				<caller organisation="com.github.fommil.netlib" name="netlib-native_ref-linux-armhf" conf="compile, runtime" rev="1.1" rev-constraint-default="1.1" rev-constraint-dynamic="1.1" callerrev="1.1"/>
 				<caller organisation="com.github.fommil.netlib" name="netlib-native_ref-osx-x86_64" conf="compile, runtime" rev="1.1" rev-constraint-default="1.1" rev-constraint-dynamic="1.1" callerrev="1.1"/>
 				<caller organisation="com.github.fommil.netlib" name="netlib-native_ref-win-i686" conf="compile, runtime" rev="1.1" rev-constraint-default="1.1" rev-constraint-dynamic="1.1" callerrev="1.1"/>
@@ -3306,16 +3306,16 @@
 			</revision>
 		</module>
 		<module organisation="edu.arizona.sista" name="processors_2.11">
-			<revision name="5.2" status="release" pubdate="20150325115145" resolver="sbt-chain" artresolver="sbt-chain" homepage="https://github.com/sistanlp/processors" downloaded="false" searched="false" default="false" conf="default, compile, runtime, default(compile), master" position="1">
+			<revision name="5.3" status="release" pubdate="20150617135913" resolver="sbt-chain" artresolver="sbt-chain" homepage="https://github.com/sistanlp/processors" downloaded="false" searched="false" default="false" conf="default, compile, runtime, default(compile), master" position="1">
 				<license name="Apache License, Version 2.0" url="http://www.apache.org/licenses/LICENSE-2.0.html"/>
-				<metadata-artifact status="no" details="" size="5559" time="0" location="/home/mcapizzi/.ivy2/cache/edu.arizona.sista/processors_2.11/ivy-5.2.xml" searched="false" origin-is-local="false" origin-location="http://repo1.maven.org/maven2/edu/arizona/sista/processors_2.11/5.2/processors_2.11-5.2.pom"/>
-				<caller organisation="nlptools" name="nlptools_2.11" conf="test, compile, runtime" rev="5.2" rev-constraint-default="5.2" rev-constraint-dynamic="5.2" callerrev="1.0"/>
+				<metadata-artifact status="no" details="" size="5559" time="0" location="/home/mcapizzi/.ivy2/cache/edu.arizona.sista/processors_2.11/ivy-5.3.xml" searched="false" origin-is-local="false" origin-location="http://repo1.maven.org/maven2/edu/arizona/sista/processors_2.11/5.3/processors_2.11-5.3.pom"/>
+				<caller organisation="nlptools" name="nlptools_2.11" conf="test, compile, runtime" rev="5.3" rev-constraint-default="5.3" rev-constraint-dynamic="5.3" callerrev="1.0"/>
 				<artifacts>
-					<artifact name="processors_2.11" type="jar" ext="jar" extra-classifier="models" status="no" details="" size="209310244" time="0" location="/home/mcapizzi/.ivy2/cache/edu.arizona.sista/processors_2.11/jars/processors_2.11-5.2-models.jar">
-						<origin-location is-local="false" location="http://repo1.maven.org/maven2/edu/arizona/sista/processors_2.11/5.2/processors_2.11-5.2-models.jar"/>
+					<artifact name="processors_2.11" type="jar" ext="jar" status="no" details="" size="2837890" time="0" location="/home/mcapizzi/.ivy2/cache/edu.arizona.sista/processors_2.11/jars/processors_2.11-5.3.jar">
+						<origin-location is-local="false" location="http://repo1.maven.org/maven2/edu/arizona/sista/processors_2.11/5.3/processors_2.11-5.3.jar"/>
 					</artifact>
-					<artifact name="processors_2.11" type="jar" ext="jar" status="no" details="" size="2805160" time="0" location="/home/mcapizzi/.ivy2/cache/edu.arizona.sista/processors_2.11/jars/processors_2.11-5.2.jar">
-						<origin-location is-local="false" location="http://repo1.maven.org/maven2/edu/arizona/sista/processors_2.11/5.2/processors_2.11-5.2.jar"/>
+					<artifact name="processors_2.11" type="jar" ext="jar" extra-classifier="models" status="no" details="" size="211145065" time="0" location="/home/mcapizzi/.ivy2/cache/edu.arizona.sista/processors_2.11/jars/processors_2.11-5.3-models.jar">
+						<origin-location is-local="false" location="http://repo1.maven.org/maven2/edu/arizona/sista/processors_2.11/5.3/processors_2.11-5.3-models.jar"/>
 					</artifact>
 				</artifacts>
 			</revision>
@@ -3324,7 +3324,7 @@
 			<revision name="2.12" status="release" pubdate="20140606142408" resolver="sbt-chain" artresolver="sbt-chain" homepage="" downloaded="false" searched="false" default="false" conf="master(*), compile, runtime(*), runtime, compile(*), master" position="30">
 				<license name="The BSD License" url="http://www.opensource.org/licenses/bsd-license.php"/>
 				<metadata-artifact status="no" details="" size="3767" time="0" location="/home/mcapizzi/.ivy2/cache/jline/jline/ivy-2.12.xml" searched="false" origin-is-local="false" origin-location="http://repo1.maven.org/maven2/jline/jline/2.12/jline-2.12.pom"/>
-				<caller organisation="edu.arizona.sista" name="processors_2.11" conf="default, compile, runtime, master" rev="2.12" rev-constraint-default="2.12" rev-constraint-dynamic="2.12" callerrev="5.2"/>
+				<caller organisation="edu.arizona.sista" name="processors_2.11" conf="default, compile, runtime, master" rev="2.12" rev-constraint-default="2.12" rev-constraint-dynamic="2.12" callerrev="5.3"/>
 				<caller organisation="org.apache.zookeeper" name="zookeeper" conf="compile, runtime" rev="0.9.94" rev-constraint-default="0.9.94" rev-constraint-dynamic="0.9.94" callerrev="3.4.5"/>
 				<artifacts>
 					<artifact name="jline" type="jar" ext="jar" status="no" details="" size="213854" time="0" location="/home/mcapizzi/.ivy2/cache/jline/jline/jars/jline-2.12.jar">
@@ -3343,7 +3343,7 @@
 			<revision name="1.14" status="release" pubdate="20140829061353" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://www.snakeyaml.org" downloaded="false" searched="false" default="false" conf="master(*), compile, runtime(*), runtime, compile(*), master" position="29">
 				<license name="Apache License Version 2.0" url="LICENSE.txt"/>
 				<metadata-artifact status="no" details="" size="3410" time="0" location="/home/mcapizzi/.ivy2/cache/org.yaml/snakeyaml/ivy-1.14.xml" searched="false" origin-is-local="false" origin-location="http://repo1.maven.org/maven2/org/yaml/snakeyaml/1.14/snakeyaml-1.14.pom"/>
-				<caller organisation="edu.arizona.sista" name="processors_2.11" conf="default, compile, runtime, master" rev="1.14" rev-constraint-default="1.14" rev-constraint-dynamic="1.14" callerrev="5.2"/>
+				<caller organisation="edu.arizona.sista" name="processors_2.11" conf="default, compile, runtime, master" rev="1.14" rev-constraint-default="1.14" rev-constraint-dynamic="1.14" callerrev="5.3"/>
 				<caller organisation="com.twitter" name="twitter-text" conf="compile, runtime" rev="1.12" rev-constraint-default="1.12" rev-constraint-dynamic="1.12" callerrev="1.6.1"/>
 				<caller organisation="org.scala-tools" name="maven-scala-plugin" conf="default, compile, runtime, master" rev="1.4" rev-constraint-default="1.4" rev-constraint-dynamic="1.4" callerrev="2.15.2"/>
 				<artifacts>
@@ -3369,7 +3369,7 @@
 			<revision name="3.17" status="release" pubdate="20130819144252" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://www.csie.ntu.edu.tw/~cjlin/libsvm/" downloaded="false" searched="false" default="false" conf="master(*), compile, runtime(*), runtime, compile(*), master" position="28">
 				<license name="BSD 3-Clause License" url="http://www.csie.ntu.edu.tw/~cjlin/libsvm/COPYRIGHT"/>
 				<metadata-artifact status="no" details="" size="2601" time="0" location="/home/mcapizzi/.ivy2/cache/tw.edu.ntu.csie/libsvm/ivy-3.17.xml" searched="false" origin-is-local="false" origin-location="http://repo1.maven.org/maven2/tw/edu/ntu/csie/libsvm/3.17/libsvm-3.17.pom"/>
-				<caller organisation="edu.arizona.sista" name="processors_2.11" conf="default, compile, runtime, master" rev="3.17" rev-constraint-default="3.17" rev-constraint-dynamic="3.17" callerrev="5.2"/>
+				<caller organisation="edu.arizona.sista" name="processors_2.11" conf="default, compile, runtime, master" rev="3.17" rev-constraint-default="3.17" rev-constraint-dynamic="3.17" callerrev="5.3"/>
 				<artifacts>
 					<artifact name="libsvm" type="jar" ext="jar" status="no" details="" size="61338" time="0" location="/home/mcapizzi/.ivy2/cache/tw.edu.ntu.csie/libsvm/jars/libsvm-3.17.jar">
 						<origin-location is-local="false" location="http://repo1.maven.org/maven2/tw/edu/ntu/csie/libsvm/3.17/libsvm-3.17.jar"/>
@@ -3381,11 +3381,11 @@
 			<revision name="1.2.17" status="release" pubdate="20120526024339" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://logging.apache.org/log4j/1.2/" downloaded="false" searched="false" default="false" conf="master(*), compile, runtime(*), runtime, compile(*), master" position="27">
 				<license name="The Apache Software License, Version 2.0" url="http://www.apache.org/licenses/LICENSE-2.0.txt"/>
 				<metadata-artifact status="no" details="" size="3514" time="0" location="/home/mcapizzi/.ivy2/cache/log4j/log4j/ivy-1.2.17.xml" searched="false" origin-is-local="false" origin-location="http://repo1.maven.org/maven2/log4j/log4j/1.2.17/log4j-1.2.17.pom"/>
-				<caller organisation="edu.arizona.sista" name="processors_2.11" conf="default, compile, runtime, master" rev="1.2.17" rev-constraint-default="1.2.17" rev-constraint-dynamic="1.2.17" callerrev="5.2"/>
 				<caller organisation="org.apache.hadoop" name="hadoop-common" conf="compile, runtime" rev="1.2.17" rev-constraint-default="1.2.17" rev-constraint-dynamic="1.2.17" callerrev="2.2.0"/>
 				<caller organisation="org.apache.hadoop" name="hadoop-yarn-common" conf="compile, runtime" rev="1.2.17" rev-constraint-default="1.2.17" rev-constraint-dynamic="1.2.17" callerrev="2.2.0"/>
 				<caller organisation="org.slf4j" name="slf4j-log4j12" conf="compile, runtime" rev="1.2.17" rev-constraint-default="1.2.17" rev-constraint-dynamic="1.2.17" callerrev="1.7.10"/>
 				<caller organisation="org.apache.hadoop" name="hadoop-auth" conf="compile, runtime" rev="1.2.17" rev-constraint-default="1.2.17" rev-constraint-dynamic="1.2.17" callerrev="2.2.0"/>
+				<caller organisation="edu.arizona.sista" name="processors_2.11" conf="default, compile, runtime, master" rev="1.2.17" rev-constraint-default="1.2.17" rev-constraint-dynamic="1.2.17" callerrev="5.3"/>
 				<caller organisation="org.apache.hadoop" name="hadoop-hdfs" conf="compile, runtime" rev="1.2.17" rev-constraint-default="1.2.17" rev-constraint-dynamic="1.2.17" callerrev="2.2.0"/>
 				<caller organisation="org.tachyonproject" name="tachyon" conf="compile, runtime" rev="1.2.17" rev-constraint-default="1.2.17" rev-constraint-dynamic="1.2.17" callerrev="0.5.0"/>
 				<caller organisation="org.apache.zookeeper" name="zookeeper" conf="compile, runtime" rev="1.2.15" rev-constraint-default="1.2.15" rev-constraint-dynamic="1.2.15" callerrev="3.4.5"/>
@@ -3419,7 +3419,7 @@
 			<revision name="1.94" status="release" pubdate="20131114151909" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://www.bwaldvogel.de/liblinear-java/" downloaded="false" searched="false" default="false" conf="master(*), compile, runtime(*), runtime, compile(*), master" position="26">
 				<license name="The BSD License" url="http://www.opensource.org/licenses/bsd-license.php"/>
 				<metadata-artifact status="no" details="" size="3532" time="0" location="/home/mcapizzi/.ivy2/cache/de.bwaldvogel/liblinear/ivy-1.94.xml" searched="false" origin-is-local="false" origin-location="http://repo1.maven.org/maven2/de/bwaldvogel/liblinear/1.94/liblinear-1.94.pom"/>
-				<caller organisation="edu.arizona.sista" name="processors_2.11" conf="default, compile, runtime, master" rev="1.94" rev-constraint-default="1.94" rev-constraint-dynamic="1.94" callerrev="5.2"/>
+				<caller organisation="edu.arizona.sista" name="processors_2.11" conf="default, compile, runtime, master" rev="1.94" rev-constraint-default="1.94" rev-constraint-dynamic="1.94" callerrev="5.3"/>
 				<artifacts>
 					<artifact name="liblinear" type="jar" ext="jar" status="no" details="" size="60385" time="0" location="/home/mcapizzi/.ivy2/cache/de.bwaldvogel/liblinear/jars/liblinear-1.94.jar">
 						<origin-location is-local="false" location="http://repo1.maven.org/maven2/de/bwaldvogel/liblinear/1.94/liblinear-1.94.jar"/>
@@ -3431,7 +3431,7 @@
 			<revision name="4.5" status="release" pubdate="20130601120649" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://pholser.github.com/jopt-simple" downloaded="false" searched="false" default="false" conf="master(*), compile, runtime(*), runtime, compile(*), master" position="25">
 				<license name="The MIT License" url="http://www.opensource.org/licenses/mit-license.php"/>
 				<metadata-artifact status="no" details="" size="3695" time="0" location="/home/mcapizzi/.ivy2/cache/net.sf.jopt-simple/jopt-simple/ivy-4.5.xml" searched="false" origin-is-local="false" origin-location="http://repo1.maven.org/maven2/net/sf/jopt-simple/jopt-simple/4.5/jopt-simple-4.5.pom"/>
-				<caller organisation="edu.arizona.sista" name="processors_2.11" conf="default, compile, runtime, master" rev="4.5" rev-constraint-default="4.5" rev-constraint-dynamic="4.5" callerrev="5.2"/>
+				<caller organisation="edu.arizona.sista" name="processors_2.11" conf="default, compile, runtime, master" rev="4.5" rev-constraint-default="4.5" rev-constraint-dynamic="4.5" callerrev="5.3"/>
 				<artifacts>
 					<artifact name="jopt-simple" type="jar" ext="jar" status="no" details="" size="61311" time="0" location="/home/mcapizzi/.ivy2/cache/net.sf.jopt-simple/jopt-simple/jars/jopt-simple-4.5.jar">
 						<origin-location is-local="false" location="http://repo1.maven.org/maven2/net/sf/jopt-simple/jopt-simple/4.5/jopt-simple-4.5.jar"/>
@@ -3443,7 +3443,7 @@
 			<revision name="3.7.10" status="release" pubdate="20130730224100" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://www.cms.waikato.ac.nz/ml/weka/" downloaded="false" searched="false" default="false" conf="master(*), compile, runtime(*), runtime, compile(*), master" position="22">
 				<license name="GNU General Public License 3" url="http://www.gnu.org/licenses/gpl-3.0.txt"/>
 				<metadata-artifact status="no" details="" size="3846" time="0" location="/home/mcapizzi/.ivy2/cache/nz.ac.waikato.cms.weka/weka-dev/ivy-3.7.10.xml" searched="false" origin-is-local="false" origin-location="http://repo1.maven.org/maven2/nz/ac/waikato/cms/weka/weka-dev/3.7.10/weka-dev-3.7.10.pom"/>
-				<caller organisation="edu.arizona.sista" name="processors_2.11" conf="default, compile, runtime, master" rev="3.7.10" rev-constraint-default="3.7.10" rev-constraint-dynamic="3.7.10" callerrev="5.2"/>
+				<caller organisation="edu.arizona.sista" name="processors_2.11" conf="default, compile, runtime, master" rev="3.7.10" rev-constraint-default="3.7.10" rev-constraint-dynamic="3.7.10" callerrev="5.3"/>
 				<artifacts>
 					<artifact name="weka-dev" type="jar" ext="jar" status="no" details="" size="6859172" time="0" location="/home/mcapizzi/.ivy2/cache/nz.ac.waikato.cms.weka/weka-dev/jars/weka-dev-3.7.10.jar">
 						<origin-location is-local="false" location="http://repo1.maven.org/maven2/nz/ac/waikato/cms/weka/weka-dev/3.7.10/weka-dev-3.7.10.jar"/>
@@ -3485,7 +3485,6 @@
 				<caller organisation="org.apache.hadoop" name="hadoop-yarn-server-nodemanager" conf="compile, runtime" rev="1.7.5" rev-constraint-default="1.7.5" rev-constraint-dynamic="1.7.5" callerrev="2.2.0"/>
 				<caller organisation="org.slf4j" name="slf4j-nop" conf="compile, runtime" rev="1.5.3" rev-constraint-default="1.5.3" rev-constraint-dynamic="1.5.3" callerrev="1.5.3"/>
 				<caller organisation="io.dropwizard.metrics" name="metrics-json" conf="compile, runtime" rev="1.7.7" rev-constraint-default="1.7.7" rev-constraint-dynamic="1.7.7" callerrev="3.1.0"/>
-				<caller organisation="edu.arizona.sista" name="processors_2.11" conf="default, compile, runtime, master" rev="1.7.10" rev-constraint-default="1.7.10" rev-constraint-dynamic="1.7.10" callerrev="5.2"/>
 				<caller organisation="org.apache.hadoop" name="hadoop-yarn-common" conf="compile, runtime" rev="1.7.5" rev-constraint-default="1.7.5" rev-constraint-dynamic="1.7.5" callerrev="2.2.0"/>
 				<caller organisation="org.slf4j" name="jcl-over-slf4j" conf="compile, runtime" rev="1.7.10" rev-constraint-default="1.7.10" rev-constraint-dynamic="1.7.10" callerrev="1.7.10"/>
 				<caller organisation="org.apache.hadoop" name="hadoop-mapreduce-client-core" conf="compile, runtime" rev="1.7.5" rev-constraint-default="1.7.5" rev-constraint-dynamic="1.7.5" callerrev="2.2.0"/>
@@ -3506,6 +3505,7 @@
 				<caller organisation="org.apache.hadoop" name="hadoop-yarn-api" conf="compile, runtime" rev="1.7.5" rev-constraint-default="1.7.5" rev-constraint-dynamic="1.7.5" callerrev="2.2.0"/>
 				<caller organisation="org.apache.hadoop" name="hadoop-yarn-client" conf="compile, runtime" rev="1.7.5" rev-constraint-default="1.7.5" rev-constraint-dynamic="1.7.5" callerrev="2.2.0"/>
 				<caller organisation="org.spark-project.akka" name="akka-slf4j_2.11" conf="compile, runtime" rev="1.7.5" rev-constraint-default="1.7.5" rev-constraint-dynamic="1.7.5" callerrev="2.3.4-spark"/>
+				<caller organisation="edu.arizona.sista" name="processors_2.11" conf="default, compile, runtime, master" rev="1.7.10" rev-constraint-default="1.7.10" rev-constraint-dynamic="1.7.10" callerrev="5.3"/>
 				<caller organisation="org.apache.hadoop" name="hadoop-mapreduce-client-shuffle" conf="compile, runtime" rev="1.7.5" rev-constraint-default="1.7.5" rev-constraint-dynamic="1.7.5" callerrev="2.2.0"/>
 				<caller organisation="org.apache.avro" name="avro" conf="compile, runtime" rev="1.6.4" rev-constraint-default="1.6.4" rev-constraint-dynamic="1.6.4" callerrev="1.7.4"/>
 				<caller organisation="org.scalanlp" name="breeze_2.11" conf="compile, runtime" rev="1.7.5" rev-constraint-default="1.7.5" rev-constraint-dynamic="1.7.5" callerrev="0.11.2"/>
@@ -3524,7 +3524,6 @@
 				<caller organisation="io.dropwizard.metrics" name="metrics-core" conf="compile, runtime" rev="1.7.7" rev-constraint-default="1.7.7" rev-constraint-dynamic="1.7.7" callerrev="3.1.0"/>
 				<caller organisation="org.slf4j" name="slf4j-nop" conf="compile, runtime" rev="1.5.3" rev-constraint-default="1.5.3" rev-constraint-dynamic="1.5.3" callerrev="1.5.3"/>
 				<caller organisation="io.dropwizard.metrics" name="metrics-json" conf="compile, runtime" rev="1.7.7" rev-constraint-default="1.7.7" rev-constraint-dynamic="1.7.7" callerrev="3.1.0"/>
-				<caller organisation="edu.arizona.sista" name="processors_2.11" conf="default, compile, runtime, master" rev="1.7.10" rev-constraint-default="1.7.10" rev-constraint-dynamic="1.7.10" callerrev="5.2"/>
 				<caller organisation="org.apache.hadoop" name="hadoop-yarn-common" conf="compile, runtime" rev="1.7.5" rev-constraint-default="1.7.5" rev-constraint-dynamic="1.7.5" callerrev="2.2.0"/>
 				<caller organisation="org.slf4j" name="jcl-over-slf4j" conf="compile, runtime" rev="1.7.10" rev-constraint-default="1.7.10" rev-constraint-dynamic="1.7.10" callerrev="1.7.10"/>
 				<caller organisation="org.apache.hadoop" name="hadoop-mapreduce-client-core" conf="compile, runtime" rev="1.7.5" rev-constraint-default="1.7.5" rev-constraint-dynamic="1.7.5" callerrev="2.2.0"/>
@@ -3545,6 +3544,7 @@
 				<caller organisation="org.apache.hadoop" name="hadoop-yarn-api" conf="compile, runtime" rev="1.7.5" rev-constraint-default="1.7.5" rev-constraint-dynamic="1.7.5" callerrev="2.2.0"/>
 				<caller organisation="org.apache.hadoop" name="hadoop-yarn-client" conf="compile, runtime" rev="1.7.5" rev-constraint-default="1.7.5" rev-constraint-dynamic="1.7.5" callerrev="2.2.0"/>
 				<caller organisation="org.spark-project.akka" name="akka-slf4j_2.11" conf="compile, runtime" rev="1.7.5" rev-constraint-default="1.7.5" rev-constraint-dynamic="1.7.5" callerrev="2.3.4-spark"/>
+				<caller organisation="edu.arizona.sista" name="processors_2.11" conf="default, compile, runtime, master" rev="1.7.10" rev-constraint-default="1.7.10" rev-constraint-dynamic="1.7.10" callerrev="5.3"/>
 				<caller organisation="org.apache.hadoop" name="hadoop-mapreduce-client-shuffle" conf="compile, runtime" rev="1.7.5" rev-constraint-default="1.7.5" rev-constraint-dynamic="1.7.5" callerrev="2.2.0"/>
 				<caller organisation="org.apache.avro" name="avro" conf="compile, runtime" rev="1.6.4" rev-constraint-default="1.6.4" rev-constraint-dynamic="1.6.4" callerrev="1.7.4"/>
 				<caller organisation="org.scalanlp" name="breeze_2.11" conf="compile, runtime" rev="1.7.5" rev-constraint-default="1.7.5" rev-constraint-dynamic="1.7.5" callerrev="0.11.2"/>
@@ -3598,7 +3598,6 @@
 				<caller organisation="org.apache.hadoop" name="hadoop-yarn-server-nodemanager" conf="compile, runtime" rev="1.7.5" rev-constraint-default="1.7.5" rev-constraint-dynamic="1.7.5" callerrev="2.2.0"/>
 				<caller organisation="org.slf4j" name="slf4j-nop" conf="compile, runtime" rev="1.5.3" rev-constraint-default="1.5.3" rev-constraint-dynamic="1.5.3" callerrev="1.5.3"/>
 				<caller organisation="io.dropwizard.metrics" name="metrics-json" conf="compile, runtime" rev="1.7.7" rev-constraint-default="1.7.7" rev-constraint-dynamic="1.7.7" callerrev="3.1.0"/>
-				<caller organisation="edu.arizona.sista" name="processors_2.11" conf="default, compile, runtime, master" rev="1.7.10" rev-constraint-default="1.7.10" rev-constraint-dynamic="1.7.10" callerrev="5.2"/>
 				<caller organisation="org.apache.hadoop" name="hadoop-yarn-common" conf="compile, runtime" rev="1.7.5" rev-constraint-default="1.7.5" rev-constraint-dynamic="1.7.5" callerrev="2.2.0"/>
 				<caller organisation="org.slf4j" name="jcl-over-slf4j" conf="compile, runtime" rev="1.7.10" rev-constraint-default="1.7.10" rev-constraint-dynamic="1.7.10" callerrev="1.7.10"/>
 				<caller organisation="org.apache.hadoop" name="hadoop-mapreduce-client-core" conf="compile, runtime" rev="1.7.5" rev-constraint-default="1.7.5" rev-constraint-dynamic="1.7.5" callerrev="2.2.0"/>
@@ -3620,6 +3619,7 @@
 				<caller organisation="org.apache.hadoop" name="hadoop-yarn-client" conf="compile, runtime" rev="1.7.5" rev-constraint-default="1.7.5" rev-constraint-dynamic="1.7.5" callerrev="2.2.0"/>
 				<caller organisation="org.spark-project.akka" name="akka-slf4j_2.11" conf="compile, runtime" rev="1.7.5" rev-constraint-default="1.7.5" rev-constraint-dynamic="1.7.5" callerrev="2.3.4-spark"/>
 				<caller organisation="org.apache.hadoop" name="hadoop-mapreduce-client-shuffle" conf="compile, runtime" rev="1.7.5" rev-constraint-default="1.7.5" rev-constraint-dynamic="1.7.5" callerrev="2.2.0"/>
+				<caller organisation="edu.arizona.sista" name="processors_2.11" conf="default, compile, runtime, master" rev="1.7.10" rev-constraint-default="1.7.10" rev-constraint-dynamic="1.7.10" callerrev="5.3"/>
 				<caller organisation="org.apache.avro" name="avro" conf="compile, runtime" rev="1.6.4" rev-constraint-default="1.6.4" rev-constraint-dynamic="1.6.4" callerrev="1.7.4"/>
 				<caller organisation="org.scalanlp" name="breeze_2.11" conf="compile, runtime" rev="1.7.5" rev-constraint-default="1.7.5" rev-constraint-dynamic="1.7.5" callerrev="0.11.2"/>
 				<caller organisation="org.apache.hadoop" name="hadoop-mapreduce-client-common" conf="compile, runtime" rev="1.7.5" rev-constraint-default="1.7.5" rev-constraint-dynamic="1.7.5" callerrev="2.2.0"/>
@@ -3628,7 +3628,7 @@
 			</revision>
 			<revision name="1.7.2" evicted="latest-revision" evicted-reason="" downloaded="false" searched="false" conf="master(*), compile, runtime(*), runtime, compile(*), master" position="-1">
 				<evicted-by rev="1.7.10"/>
-				<caller organisation="edu.arizona.sista" name="processors_2.11" conf="default, compile, runtime, master" rev="1.7.10" rev-constraint-default="1.7.10" rev-constraint-dynamic="1.7.10" callerrev="5.2"/>
+				<caller organisation="edu.arizona.sista" name="processors_2.11" conf="default, compile, runtime, master" rev="1.7.10" rev-constraint-default="1.7.10" rev-constraint-dynamic="1.7.10" callerrev="5.3"/>
 				<caller organisation="org.tachyonproject" name="tachyon" conf="compile, runtime" rev="1.7.2" rev-constraint-default="1.7.2" rev-constraint-dynamic="1.7.2" callerrev="0.5.0"/>
 				<caller organisation="ch.qos.logback" name="logback-classic" conf="compile, runtime" rev="1.7.2" rev-constraint-default="1.7.2" rev-constraint-dynamic="1.7.2" callerrev="1.0.10"/>
 				<artifacts>
@@ -3640,7 +3640,7 @@
 				<license name="Eclipse Public License - v 1.0" url="http://www.eclipse.org/legal/epl-v10.html"/>
 				<license name="GNU Lesser General Public License" url="http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html"/>
 				<metadata-artifact status="no" details="" size="10010" time="0" location="/home/mcapizzi/.ivy2/cache/ch.qos.logback/logback-classic/ivy-1.0.10.xml" searched="false" origin-is-local="false" origin-location="http://repo1.maven.org/maven2/ch/qos/logback/logback-classic/1.0.10/logback-classic-1.0.10.pom"/>
-				<caller organisation="edu.arizona.sista" name="processors_2.11" conf="default, compile, runtime, master" rev="1.0.10" rev-constraint-default="1.0.10" rev-constraint-dynamic="1.0.10" callerrev="5.2"/>
+				<caller organisation="edu.arizona.sista" name="processors_2.11" conf="default, compile, runtime, master" rev="1.0.10" rev-constraint-default="1.0.10" rev-constraint-dynamic="1.0.10" callerrev="5.3"/>
 				<artifacts>
 					<artifact name="logback-classic" type="jar" ext="jar" status="no" details="" size="255445" time="0" location="/home/mcapizzi/.ivy2/cache/ch.qos.logback/logback-classic/jars/logback-classic-1.0.10.jar">
 						<origin-location is-local="false" location="http://repo1.maven.org/maven2/ch/qos/logback/logback-classic/1.0.10/logback-classic-1.0.10.jar"/>
@@ -3665,7 +3665,7 @@
 			<revision name="3.5.1" status="release" pubdate="20150209130257" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://nlp.stanford.edu/software/corenlp.shtml" downloaded="false" searched="false" default="false" conf="master(*), compile, runtime(*), runtime, compile(*), master" position="17">
 				<license name="GNU General Public License Version 3" url="http://www.gnu.org/licenses/gpl-3.0.txt"/>
 				<metadata-artifact status="no" details="" size="3903" time="0" location="/home/mcapizzi/.ivy2/cache/edu.stanford.nlp/stanford-corenlp/ivy-3.5.1.xml" searched="false" origin-is-local="false" origin-location="http://repo1.maven.org/maven2/edu/stanford/nlp/stanford-corenlp/3.5.1/stanford-corenlp-3.5.1.pom"/>
-				<caller organisation="edu.arizona.sista" name="processors_2.11" conf="default, compile, runtime, master" rev="3.5.1" rev-constraint-default="3.5.1" rev-constraint-dynamic="3.5.1" callerrev="5.2"/>
+				<caller organisation="edu.arizona.sista" name="processors_2.11" conf="default, compile, runtime, master" rev="3.5.1" rev-constraint-default="3.5.1" rev-constraint-dynamic="3.5.1" callerrev="5.3"/>
 				<caller organisation="edu.cmu.cs" name="ark-tweet-nlp" conf="default, compile, runtime, master" rev="1.2.0" rev-constraint-default="1.2.0" rev-constraint-dynamic="1.2.0" callerrev="0.3.2"/>
 				<artifacts>
 					<artifact name="stanford-corenlp" type="jar" ext="jar" extra-classifier="models" status="no" details="" size="299621056" time="0" location="/home/mcapizzi/.ivy2/cache/edu.stanford.nlp/stanford-corenlp/jars/stanford-corenlp-3.5.1-models.jar">
@@ -3698,8 +3698,8 @@
 			<revision name="0.23" status="release" pubdate="20130621091625" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://code.google.com/p/efficient-java-matrix-library/" downloaded="false" searched="false" default="false" conf="master(*), compile, runtime(*), runtime, compile(*), master" position="16">
 				<license name="LGPL" url="http://www.gnu.org/copyleft/lesser.html"/>
 				<metadata-artifact status="no" details="" size="3173" time="0" location="/home/mcapizzi/.ivy2/cache/com.googlecode.efficient-java-matrix-library/ejml/ivy-0.23.xml" searched="false" origin-is-local="false" origin-location="http://repo1.maven.org/maven2/com/googlecode/efficient-java-matrix-library/ejml/0.23/ejml-0.23.pom"/>
-				<caller organisation="edu.arizona.sista" name="processors_2.11" conf="default, compile, runtime, master" rev="0.23" rev-constraint-default="0.23" rev-constraint-dynamic="0.23" callerrev="5.2"/>
 				<caller organisation="edu.stanford.nlp" name="stanford-corenlp" conf="compile, runtime" rev="0.23" rev-constraint-default="0.23" rev-constraint-dynamic="0.23" callerrev="3.5.1"/>
+				<caller organisation="edu.arizona.sista" name="processors_2.11" conf="default, compile, runtime, master" rev="0.23" rev-constraint-default="0.23" rev-constraint-dynamic="0.23" callerrev="5.3"/>
 				<artifacts>
 					<artifact name="ejml" type="jar" ext="jar" status="no" details="" size="301506" time="0" location="/home/mcapizzi/.ivy2/cache/com.googlecode.efficient-java-matrix-library/ejml/jars/ejml-0.23.jar">
 						<origin-location is-local="false" location="http://repo1.maven.org/maven2/com/googlecode/efficient-java-matrix-library/ejml/0.23/ejml-0.23.jar"/>
@@ -3711,8 +3711,8 @@
 			<revision name="0.4.7" status="release" pubdate="20121104170012" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://sourceforge.net/projects/jollyday" downloaded="false" searched="false" default="false" conf="master(*), compile, runtime(*), runtime, compile(*), master" position="14">
 				<license name="Apache 2" url="http://www.apache.org/licenses/LICENSE-2.0.txt"/>
 				<metadata-artifact status="no" details="" size="4099" time="0" location="/home/mcapizzi/.ivy2/cache/de.jollyday/jollyday/ivy-0.4.7.xml" searched="false" origin-is-local="false" origin-location="http://repo1.maven.org/maven2/de/jollyday/jollyday/0.4.7/jollyday-0.4.7.pom"/>
-				<caller organisation="edu.arizona.sista" name="processors_2.11" conf="default, compile, runtime, master" rev="0.4.7" rev-constraint-default="0.4.7" rev-constraint-dynamic="0.4.7" callerrev="5.2"/>
 				<caller organisation="edu.stanford.nlp" name="stanford-corenlp" conf="compile, runtime" rev="0.4.7" rev-constraint-default="0.4.7" rev-constraint-dynamic="0.4.7" callerrev="3.5.1"/>
+				<caller organisation="edu.arizona.sista" name="processors_2.11" conf="default, compile, runtime, master" rev="0.4.7" rev-constraint-default="0.4.7" rev-constraint-dynamic="0.4.7" callerrev="5.3"/>
 				<artifacts>
 					<artifact name="jollyday" type="jar" ext="jar" status="no" details="" size="200993" time="0" location="/home/mcapizzi/.ivy2/cache/de.jollyday/jollyday/jars/jollyday-0.4.7.jar">
 						<origin-location is-local="false" location="http://repo1.maven.org/maven2/de/jollyday/jollyday/0.4.7/jollyday-0.4.7.jar"/>
@@ -3744,9 +3744,9 @@
 			<revision name="2.7" status="release" pubdate="20150111175125" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://www.joda.org/joda-time/" downloaded="false" searched="false" default="false" conf="master(*), compile, runtime(*), runtime, compile(*), master" position="13">
 				<license name="Apache 2" url="http://www.apache.org/licenses/LICENSE-2.0.txt"/>
 				<metadata-artifact status="no" details="" size="6448" time="0" location="/home/mcapizzi/.ivy2/cache/joda-time/joda-time/ivy-2.7.xml" searched="false" origin-is-local="false" origin-location="http://repo1.maven.org/maven2/joda-time/joda-time/2.7/joda-time-2.7.pom"/>
-				<caller organisation="edu.arizona.sista" name="processors_2.11" conf="default, compile, runtime, master" rev="2.7" rev-constraint-default="2.7" rev-constraint-dynamic="2.7" callerrev="5.2"/>
 				<caller organisation="de.jollyday" name="jollyday" conf="compile, runtime" rev="2.1" rev-constraint-default="2.1" rev-constraint-dynamic="2.1" callerrev="0.4.7"/>
 				<caller organisation="edu.stanford.nlp" name="stanford-corenlp" conf="compile, runtime" rev="2.1" rev-constraint-default="2.1" rev-constraint-dynamic="2.1" callerrev="3.5.1"/>
+				<caller organisation="edu.arizona.sista" name="processors_2.11" conf="default, compile, runtime, master" rev="2.7" rev-constraint-default="2.7" rev-constraint-dynamic="2.7" callerrev="5.3"/>
 				<artifacts>
 					<artifact name="joda-time" type="jar" ext="jar" status="no" details="" size="589289" time="0" location="/home/mcapizzi/.ivy2/cache/joda-time/joda-time/jars/joda-time-2.7.jar">
 						<origin-location is-local="false" location="https://repo1.maven.org/maven2/joda-time/joda-time/2.7/joda-time-2.7.jar"/>
@@ -3765,7 +3765,7 @@
 			<revision name="3.2.11" status="release" pubdate="20141023181049" resolver="sbt-chain" artresolver="sbt-chain" homepage="https://github.com/json4s/json4s" downloaded="false" searched="false" default="false" conf="master(*), compile, runtime(*), runtime, compile(*), master" position="8">
 				<license name="ASL" url="http://github.com/json4s/json4s/raw/HEAD/LICENSE"/>
 				<metadata-artifact status="no" details="" size="2665" time="0" location="/home/mcapizzi/.ivy2/cache/org.json4s/json4s-native_2.11/ivy-3.2.11.xml" searched="false" origin-is-local="false" origin-location="http://repo1.maven.org/maven2/org/json4s/json4s-native_2.11/3.2.11/json4s-native_2.11-3.2.11.pom"/>
-				<caller organisation="edu.arizona.sista" name="processors_2.11" conf="default, compile, runtime, master" rev="3.2.11" rev-constraint-default="3.2.11" rev-constraint-dynamic="3.2.11" callerrev="5.2"/>
+				<caller organisation="edu.arizona.sista" name="processors_2.11" conf="default, compile, runtime, master" rev="3.2.11" rev-constraint-default="3.2.11" rev-constraint-dynamic="3.2.11" callerrev="5.3"/>
 				<artifacts>
 					<artifact name="json4s-native_2.11" type="jar" ext="jar" status="no" details="" size="67829" time="0" location="/home/mcapizzi/.ivy2/cache/org.json4s/json4s-native_2.11/jars/json4s-native_2.11-3.2.11.jar">
 						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/json4s/json4s-native_2.11/3.2.11/json4s-native_2.11-3.2.11.jar"/>
@@ -3868,8 +3868,8 @@
 			<revision name="1.2.10" status="release" pubdate="20131025091622" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://xom.nu" downloaded="false" searched="false" default="false" conf="master(*), compile, runtime(*), runtime, compile(*), master" position="4">
 				<license name="The GNU Lesser General Public License, Version 2.1" url="http://www.gnu.org/licenses/lgpl-2.1.html"/>
 				<metadata-artifact status="no" details="" size="2881" time="0" location="/home/mcapizzi/.ivy2/cache/com.io7m.xom/xom/ivy-1.2.10.xml" searched="false" origin-is-local="false" origin-location="http://repo1.maven.org/maven2/com/io7m/xom/xom/1.2.10/xom-1.2.10.pom"/>
-				<caller organisation="edu.arizona.sista" name="processors_2.11" conf="default, compile, runtime, master" rev="1.2.10" rev-constraint-default="1.2.10" rev-constraint-dynamic="1.2.10" callerrev="5.2"/>
 				<caller organisation="edu.stanford.nlp" name="stanford-corenlp" conf="compile, runtime" rev="1.2.10" rev-constraint-default="1.2.10" rev-constraint-dynamic="1.2.10" callerrev="3.5.1"/>
+				<caller organisation="edu.arizona.sista" name="processors_2.11" conf="default, compile, runtime, master" rev="1.2.10" rev-constraint-default="1.2.10" rev-constraint-dynamic="1.2.10" callerrev="5.3"/>
 				<artifacts>
 					<artifact name="xom" type="jar" ext="jar" status="no" details="" size="313253" time="0" location="/home/mcapizzi/.ivy2/cache/com.io7m.xom/xom/jars/xom-1.2.10.jar">
 						<origin-location is-local="false" location="http://repo1.maven.org/maven2/com/io7m/xom/xom/1.2.10/xom-1.2.10.jar"/>
@@ -3922,7 +3922,7 @@
 			<revision name="1.0.3" status="release" pubdate="20141214172104" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://www.scala-lang.org/" downloaded="false" searched="false" default="false" conf="master(*), compile, runtime(*), runtime, compile(*), master" position="3">
 				<license name="BSD 3-clause" url="http://opensource.org/licenses/BSD-3-Clause"/>
 				<metadata-artifact status="no" details="" size="2785" time="0" location="/home/mcapizzi/.ivy2/cache/org.scala-lang.modules/scala-parser-combinators_2.11/ivy-1.0.3.xml" searched="false" origin-is-local="false" origin-location="http://repo1.maven.org/maven2/org/scala-lang/modules/scala-parser-combinators_2.11/1.0.3/scala-parser-combinators_2.11-1.0.3.pom"/>
-				<caller organisation="edu.arizona.sista" name="processors_2.11" conf="default, compile, runtime, master" rev="1.0.3" rev-constraint-default="1.0.3" rev-constraint-dynamic="1.0.3" callerrev="5.2"/>
+				<caller organisation="edu.arizona.sista" name="processors_2.11" conf="default, compile, runtime, master" rev="1.0.3" rev-constraint-default="1.0.3" rev-constraint-dynamic="1.0.3" callerrev="5.3"/>
 				<caller organisation="org.scala-lang" name="scala-compiler" conf="compile, runtime" rev="1.0.1" rev-constraint-default="1.0.1" rev-constraint-dynamic="1.0.1" callerrev="2.11.0"/>
 				<caller organisation="com.quantifind" name="sumac_2.11" conf="compile, runtime" rev="1.0.1" rev-constraint-default="1.0.1" rev-constraint-dynamic="1.0.1" callerrev="0.3.0"/>
 				<caller organisation="org.scala-lang" name="scala-compiler" conf="compile, runtime" rev="1.0.2" rev-constraint-default="1.0.2" rev-constraint-dynamic="1.0.2" callerrev="2.11.2"/>
@@ -3951,9 +3951,9 @@
 				<license name="BSD 3-Clause" url="http://www.scala-lang.org/license.html"/>
 				<metadata-artifact status="no" details="" size="2819" time="0" location="/home/mcapizzi/.ivy2/cache/org.scala-lang/scala-reflect/ivy-2.11.5.xml" searched="false" origin-is-local="false" origin-location="http://repo1.maven.org/maven2/org/scala-lang/scala-reflect/2.11.5/scala-reflect-2.11.5.pom"/>
 				<caller organisation="org.apache.spark" name="spark-catalyst_2.11" conf="compile, runtime" rev="2.11.2" rev-constraint-default="2.11.2" rev-constraint-dynamic="2.11.2" callerrev="1.3.1"/>
-				<caller organisation="edu.arizona.sista" name="processors_2.11" conf="default, compile, runtime, master" rev="2.11.5" rev-constraint-default="2.11.5" rev-constraint-dynamic="2.11.5" callerrev="5.2"/>
 				<caller organisation="org.spire-math" name="spire_2.11" conf="compile, runtime" rev="2.11.0" rev-constraint-default="2.11.0" rev-constraint-dynamic="2.11.0" callerrev="0.7.4"/>
 				<caller organisation="org.spire-math" name="spire-macros_2.11" conf="compile, runtime" rev="2.11.0" rev-constraint-default="2.11.0" rev-constraint-dynamic="2.11.0" callerrev="0.7.4"/>
+				<caller organisation="edu.arizona.sista" name="processors_2.11" conf="default, compile, runtime, master" rev="2.11.5" rev-constraint-default="2.11.5" rev-constraint-dynamic="2.11.5" callerrev="5.3"/>
 				<caller organisation="org.scala-lang" name="scala-compiler" conf="compile, runtime" rev="2.11.0" rev-constraint-default="2.11.0" rev-constraint-dynamic="2.11.0" callerrev="2.11.0"/>
 				<caller organisation="org.scalanlp" name="breeze-macros_2.11" conf="compile, runtime" rev="2.11.4" rev-constraint-default="2.11.4" rev-constraint-dynamic="2.11.4" callerrev="0.11.2"/>
 				<caller organisation="com.fasterxml.jackson.module" name="jackson-module-scala_2.11" conf="compile, runtime" rev="2.11.2" rev-constraint-default="2.11.2" rev-constraint-dynamic="2.11.2" callerrev="2.4.4"/>
@@ -4002,7 +4002,6 @@
 				<caller organisation="org.scalanlp" name="breeze-natives_2.11" conf="default, compile, runtime, master" rev="2.11.4" rev-constraint-default="2.11.4" rev-constraint-dynamic="2.11.4" callerrev="0.11.2"/>
 				<caller organisation="net.databinder" name="unfiltered_2.11" conf="compile, runtime" rev="2.11.2" rev-constraint-default="2.11.2" rev-constraint-dynamic="2.11.2" callerrev="0.8.3"/>
 				<caller organisation="org.scala-lang" name="scala-compiler" conf="compile, runtime" rev="2.11.2" rev-constraint-default="2.11.2" rev-constraint-dynamic="2.11.2" callerrev="2.11.2"/>
-				<caller organisation="edu.arizona.sista" name="processors_2.11" conf="default, compile, runtime, master" rev="2.11.5" rev-constraint-default="2.11.5" rev-constraint-dynamic="2.11.5" callerrev="5.2"/>
 				<caller organisation="org.json4s" name="json4s-jackson_2.11" conf="compile, runtime" rev="2.11.0" rev-constraint-default="2.11.0" rev-constraint-dynamic="2.11.0" callerrev="3.2.10"/>
 				<caller organisation="org.apache.spark" name="spark-streaming_2.11" conf="default, compile, runtime, master" rev="2.11.2" rev-constraint-default="2.11.2" rev-constraint-dynamic="2.11.2" callerrev="1.3.1"/>
 				<caller organisation="org.scala-lang" name="scala-compiler" conf="compile, runtime" rev="2.11.0" rev-constraint-default="2.11.0" rev-constraint-dynamic="2.11.0" callerrev="2.11.0"/>
@@ -4020,6 +4019,7 @@
 				<caller organisation="org.spire-math" name="spire-macros_2.11" conf="compile, runtime" rev="2.11.0" rev-constraint-default="2.11.0" rev-constraint-dynamic="2.11.0" callerrev="0.7.4"/>
 				<caller organisation="org.spark-project.akka" name="akka-slf4j_2.11" conf="compile, runtime" rev="2.11.0" rev-constraint-default="2.11.0" rev-constraint-dynamic="2.11.0" callerrev="2.3.4-spark"/>
 				<caller organisation="org.json4s" name="json4s-core_2.11" conf="compile, runtime" rev="2.11.0" rev-constraint-default="2.11.0" rev-constraint-dynamic="2.11.0" callerrev="3.2.11"/>
+				<caller organisation="edu.arizona.sista" name="processors_2.11" conf="default, compile, runtime, master" rev="2.11.5" rev-constraint-default="2.11.5" rev-constraint-dynamic="2.11.5" callerrev="5.3"/>
 				<caller organisation="org.spark-project.akka" name="akka-remote_2.11" conf="compile, runtime" rev="2.11.0" rev-constraint-default="2.11.0" rev-constraint-dynamic="2.11.0" callerrev="2.3.4-spark"/>
 				<caller organisation="org.spark-project.akka" name="akka-actor_2.11" conf="compile, runtime" rev="2.11.0" rev-constraint-default="2.11.0" rev-constraint-dynamic="2.11.0" callerrev="2.3.4-spark"/>
 				<caller organisation="org.scalanlp" name="breeze_2.11" conf="compile, runtime" rev="2.11.4" rev-constraint-default="2.11.4" rev-constraint-dynamic="2.11.4" callerrev="0.11.2"/>
@@ -4109,9 +4109,9 @@
 			</revision>
 			<revision name="2.11.5" evicted="latest-revision" evicted-reason="" downloaded="false" searched="false" conf="master(*), compile, runtime(*), runtime, compile(*), master" position="-1">
 				<evicted-by rev="2.11.6"/>
-				<caller organisation="edu.arizona.sista" name="processors_2.11" conf="default, compile, runtime, master" rev="2.11.5" rev-constraint-default="2.11.5" rev-constraint-dynamic="2.11.5" callerrev="5.2"/>
 				<caller organisation="org.scala-lang.modules" name="scala-parser-combinators_2.11" conf="compile, runtime" rev="2.11.2" rev-constraint-default="2.11.2" rev-constraint-dynamic="2.11.2" callerrev="1.0.3"/>
 				<caller organisation="org.scala-lang" name="scala-reflect" conf="compile, runtime" rev="2.11.5" rev-constraint-default="2.11.5" rev-constraint-dynamic="2.11.5" callerrev="2.11.5"/>
+				<caller organisation="edu.arizona.sista" name="processors_2.11" conf="default, compile, runtime, master" rev="2.11.5" rev-constraint-default="2.11.5" rev-constraint-dynamic="2.11.5" callerrev="5.3"/>
 				<caller organisation="org.json4s" name="json4s-native_2.11" conf="compile, runtime" rev="2.11.0" rev-constraint-default="2.11.0" rev-constraint-dynamic="2.11.0" callerrev="3.2.11"/>
 				<artifacts>
 				</artifacts>

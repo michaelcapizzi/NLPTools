@@ -4,7 +4,7 @@
 		module="nlptools_2.11"
 		revision="1.0"
 		status="integration"
-		publication="20150619071905"
+		publication="20150705095610"
 	>
 		<description>
 		NLPTools
@@ -34,7 +34,7 @@
 	<dependencies>
 		<dependency org="org.scala-lang" name="scala-compiler" rev="2.11.6" conf="scala-tool->default,optional(default)"/>
 		<dependency org="org.scala-lang" name="scala-library" rev="2.11.6" conf="scala-tool->default,optional(default);compile->default(compile)"/>
-		<dependency org="edu.arizona.sista" name="processors_2.11" rev="5.2" conf="compile->default(compile)">
+		<dependency org="edu.arizona.sista" name="processors_2.11" rev="5.3" conf="compile->default(compile)">
 			<artifact name="processors_2.11" type="jar" ext="jar" conf="compile"/>
 			<artifact name="processors_2.11" type="jar" ext="jar" conf="*" e:classifier="models"/>
 		</dependency>

@@ -10,7 +10,8 @@ import edu.arizona.sista.processors.corenlp.CoreNLPProcessor
 class ODIN(
             sistaDoc: edu.arizona.sista.processors.Document,
             processor: CoreNLPProcessor,
-            ruleFilePath: String
+            ruleFilePath: String,
+            val actions: Actions
           ) {
 
   def annotate: Unit = processor.annotate(sistaDoc)
@@ -28,12 +29,12 @@ class ODIN(
   }
 
   //should this be [Nothing]?
-  def createExtractor(source: String): ExtractorEngine[Actions] = {
-    if (source == "URL") new ExtractorEngine[Actions](this.rulesFromURL)
-    else new ExtractorEngine[Actions](this.rulesFromFile)
+  def createExtractor(source: String): ExtractorEngine = {
+    if (source == "URL") ExtractorEngine(this.rulesFromURL, this.actions)
+    else ExtractorEngine[Actions](this.rulesFromFile, this.actions)
   }
 
-  def getMentions(extractor: ExtractorEngine[Actions]): Vector[Mention] = {
+  def getMentions(extractor: ExtractorEngine): Vector[Mention] = {
     extractor.extractFrom(sistaDoc).sortBy(m => (m.sentence, m.getClass.getSimpleName)).toVector
   }
 
