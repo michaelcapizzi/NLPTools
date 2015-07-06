@@ -97,7 +97,9 @@ class Word2VecManual(
       val vectorizedLine = splitLine.head -> breeze.linalg.DenseVector(tail)      //build map entry
       emptyw2vMap += vectorizedLine
     }
-    mutable.ParHashMap((0, mllib.linalg.Vector.dense(0d))) = emptyw2vMap
+    val finalMap = new mutable.ParHashMap[(mllib.linalg.Vector[Double], Int), mutable.ParHashMap[String, breeze.linalg.DenseVector[Double]]]
+    //TODO fix finalMap here
+    finalMap += ((0, mllib.linalg.Vectors.dense(0d)) -> emptyw2vMap)
     } else {
       for (word <- vocabulary.par) yield {
         val line = Source.fromFile(this.vectorFilePath).getLines.find(it => it.split(" ").head == word).get

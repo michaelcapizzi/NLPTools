@@ -46,8 +46,8 @@
       <file leaf-file-name="Word2VecManual.scala" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/scala/FeatureDevelopment/Word2VecManual.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.5437788">
-              <caret line="99" column="52" selection-start-line="99" selection-start-column="52" selection-end-line="99" selection-end-column="52" />
+            <state vertical-scroll-proportion="0.3778802">
+              <caret line="101" column="4" selection-start-line="101" selection-start-column="4" selection-end-line="101" selection-end-column="4" />
               <folding>
                 <element signature="e#29#56#0" expanded="true" />
               </folding>
@@ -884,7 +884,13 @@
       <option name="project" value="LOCAL" />
       <updated>1436220774451</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="building clustering into Word2VecManual">
+      <created>1436222299293</created>
+      <option name="number" value="00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1436222299293</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -1314,8 +1320,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/scala/FeatureDevelopment/Word2VecManual.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5437788">
-          <caret line="99" column="52" selection-start-line="99" selection-start-column="52" selection-end-line="99" selection-end-column="52" />
+        <state vertical-scroll-proportion="0.3778802">
+          <caret line="101" column="4" selection-start-line="101" selection-start-column="4" selection-end-line="101" selection-end-column="4" />
           <folding>
             <element signature="e#29#56#0" expanded="true" />
           </folding>
