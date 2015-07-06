@@ -6,7 +6,10 @@ import java.io.Serializable
 import breeze.linalg.DenseVector
 import breeze.numerics._
 import org.apache.spark.mllib.clustering.KMeans
-import org.apache.spark.{SparkContext, SparkConf}
+import org.apache.spark.mllib.linalg
+import org.apache.spark.mllib.linalg.Vectors
+import org.apache.spark.rdd.RDD
+import org.apache.spark.{mllib, SparkContext, SparkConf}
 import scala.collection
 import scala.collection.parallel.immutable.ParVector
 import scala.collection.parallel.mutable
@@ -21,18 +24,25 @@ class Word2VecManual(
                 build: Boolean = false*/
               ) {
 
+  //use .toArray to move between breeze.DenseVector and mllib.linalg.Vectors
+
+  //create sc and conf
+
+  //convert linalg.breeze.vectors -> mllib.linalg.Vectors
+    //breeze.map(each => Vectors.dense(each.toArray)
+
+  //make an RDD out of it
+
+  //run KMeans
 
 
-
-
-  //TODO - remove "clusters" from below
-
+  //TODO add situation when word not in word2vec data
   //TODO add tuple with clusters number and cluster centroid
   def buildHashMap: mutable.ParHashMap[String, breeze.linalg.DenseVector[Double]] = {
     val emptyMap = new mutable.ParHashMap[String, breeze.linalg.DenseVector[Double]]()
     /*if (this.clusters == 0) {*/
       //for (line <- Source.fromFile(this.vectorFilePath).getLines.toVector.par) yield {
-      for (word <- vocabulary.par) yield {
+      for (word <- vocabulary.par.map(each => each.toLowerCase)) yield {
         val line = Source.fromFile(this.vectorFilePath).getLines.find(it => it.split(" ").head == word).get
         //val line = Source.fromURL(this.vectorFilePath).getLines.find(it => it.split(" ").head == word).get
         val splitLine = line.split(" ")                                             //split string into elements
@@ -81,6 +91,7 @@ class Word2VecManual(
   }
 
 
+
   //TODO add capacity for clusters
   //get w2v vector for given word
   def getVector(word: String): breeze.linalg.DenseVector[Double] = {
@@ -94,6 +105,35 @@ class Word2VecManual(
       DenseVector(found)                                                      //convert to DenseVector
     }*/
   }
+
+  ////////////////////////clusters////////////////////////////
+
+  //initialize Spark
+  val conf = new SparkConf().setAppName("w2v").setMaster("local[4]")
+  val sc = new SparkContext(conf)
+
+  val breezeVectors = this.vocabulary.map(w => this.getVector(w))
+
+  val mllibVectors = breezeVectors.map(v => Vectors.dense(v.toArray))
+
+  val rdd = sc.makeRDD(mllibVectors)
+
+  //KMeans
+  val clusters = KMeans.train(rdd, this.vocabulary.distinct.length / 10, 100)
+
+  def getCentroids: Vector[mllib.linalg.Vector] = {
+    clusters.clusterCenters.toVector
+  }
+
+  def predictCluster(word: String): Int = {
+    val wordVector = Vectors.dense(this.getVector(word).toArray)
+
+    this.clusters.predict(wordVector)
+  }
+
+  def clusterHashMap:
+
+
 
 
   //TODO add capacity for clusters

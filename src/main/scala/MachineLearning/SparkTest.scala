@@ -30,6 +30,8 @@ object SparkTest {
   val distData = sc.parallelize(data)
   distData.filter(_ < 10).collect
 
+  val v = Vector(1,2,3)
+
   //import text
   //val lines = sc.textFile("/home/mcapizzi/Github/Unbound/src/main/resources/rawText/0001AL_Garden.txt")
 
