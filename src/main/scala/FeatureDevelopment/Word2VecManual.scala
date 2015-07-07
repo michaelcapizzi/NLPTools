@@ -2,7 +2,7 @@ package FeatureDevelopment
 
 
 import java.io.Serializable
-
+import nak.cluster._
 import breeze.linalg.DenseVector
 import breeze.numerics._
 import org.apache.spark.mllib.clustering.KMeans
@@ -26,7 +26,7 @@ class Word2VecManual(
 
   ////////////////////////clusters////////////////////////////
 
-  //initialize Spark
+  /*//initialize Spark
   val conf = new SparkConf().setAppName("w2v").setMaster("local[4]")
   val sc = new SparkContext(conf)
 
@@ -47,7 +47,7 @@ class Word2VecManual(
     val wordVector = Vectors.dense(this.getVector(word).toArray)
 
     this.clusters.predict(wordVector)
-  }
+  }*/
 
   ////////////////////////clusters////////////////////////////
   //TODO figure out how to implement clusters
@@ -72,7 +72,28 @@ class Word2VecManual(
         val line = Source.fromFile(this.vectorFilePath).getLines.find(it => it.split(" ").head == word).get
         val splitLine = line.split(" ") //split string into elements
         val tail = splitLine.tail.toArray.map(_.toDouble) //build w2v vector
-        val vectorizedLine = splitLine.head -> breeze.linalg.DenseVector(tail) //build map entry
+        val vectorizedLine = splitLine.head -> breeze.linalg.DenseVector(tai/*//initialize Spark
+  val conf = new SparkConf().setAppName("w2v").setMaster("local[4]")
+  val sc = new SparkContext(conf)
+
+  val breezeVectors = this.vocabulary.map(w => this.getVector(w))
+
+  val mllibVectors = breezeVectors.map(v => Vectors.dense(v.toArray))
+
+  val rdd = sc.makeRDD(mllibVectors)
+
+  //KMeans
+  val clusters = KMeans.train(rdd, if (this.vocabulary.distinct.length > 20) this.vocabulary.distinct.length / 10 else 2, 100)
+
+  def getCentroids: Vector[(mllib.linalg.Vector, Int)] = {
+    clusters.clusterCenters.zipWithIndex.toVector
+  }
+
+  def predictCluster(word: String): Int = {
+    val wordVector = Vectors.dense(this.getVector(word).toArray)
+
+    this.clusters.predict(wordVector)
+  }*/l) //build map entry
         emptyMap += vectorizedLine
       }
     //convert emptyMap values to mllib.Vectors
@@ -82,46 +103,26 @@ class Word2VecManual(
     }*/
   }
 
-  //TODO build
-  //makes a map of a map
-    //[(Cluster#, CentroidVector) -> [(word) -> w2vVector]]
-  def buildHashMap2: mutable.ParHashMap[(mllib.linalg.Vector[Double], Int), mutable.ParHashMap[String, breeze.linalg.DenseVector[Double]]] = {
-    val emptyw2vMap = new mutable.ParHashMap[String, breeze.linalg.DenseVector[Double]]()
-    if (this.clusters == 0) {
-    //for (line <- Source.fromFile(this.vectorFilePath).getLines.toVector.par) yield {
-    for (word <- vocabulary.map(each => each.toLowerCase)) yield {
-      val line = Source.fromFile(this.vectorFilePath).getLines.find(it => it.split(" ").head == word).get
-      //val line = Source.fromURL(this.vectorFilePath).getLines.find(it => it.split(" ").head == word).get
-      val splitLine = line.split(" ")                                             //split string into elements
-      val tail = splitLine.tail.toArray.map(_.toDouble)                           //build w2v vector
-      val vectorizedLine = splitLine.head -> breeze.linalg.DenseVector(tail)      //build map entry
-      emptyw2vMap += vectorizedLine
-    }
-    val finalMap = new mutable.ParHashMap[(mllib.linalg.Vector[Double], Int), mutable.ParHashMap[String, breeze.linalg.DenseVector[Double]]]
-    //TODO fix finalMap here
-    finalMap += ((0, mllib.linalg.Vectors.dense(0d)) -> emptyw2vMap)
-    } else {
-      for (word <- vocabulary.par) yield {
-        val line = Source.fromFile(this.vectorFilePath).getLines.find(it => it.split(" ").head == word).get
-        val splitLine = line.split(" ") //split string into elements
-        val tail = splitLine.tail.toArray.map(_.toDouble) //build w2v vector
-        val vectorizedLine = splitLine.head -> breeze.linalg.DenseVector(tail) //build map entry
-        emptyw2vMap += vectorizedLine
-
-        //TODO add clustering here
-        val finalMap = new mutable.ParHashMap[(mllib.linalg.Vector[Double], Int), mutable.ParHashMap[String, breeze.linalg.DenseVector[Double]]]
-        for (cluster <- this.getCentroids) {
-          finalMap += (cluster, /*map of words and vectors in this cluster*/)
-        }
-      }
-    }
-  }
-
 
   //hashMap (word -> vector)
   val w2vHashMap = /*if (build)*/ this.buildHashMap /*else mutable.ParHashMap[String, breeze.linalg.DenseVector[Double]]()*/
   //stream (word, vector)
   val w2vStream = this.w2vHashMap.toStream
+
+  /////clustering
+
+  val kmeans = new Kmeans[breeze.linalg.DenseVector[Double]](this.w2vStream.map(_._2).toVector)
+
+  val k = if (this.vocabulary.length < 20) {
+            1
+          } else if (this.vocabulary.length >= 20 && this.vocabulary.length < 1000) {
+            this.vocabulary.length / 10
+          } else {
+            this.vocabulary.length / 1000
+          }
+
+  val centroids = kmeans.run(k)._2
+
 
 
   //TODO test

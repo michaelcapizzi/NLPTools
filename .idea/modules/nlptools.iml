@@ -312,5 +312,12 @@
     <orderEntry type="library" name="SBT: org.scala-lang.modules:scala-xml_2.11:1.0.2:jar" level="project" />
     <orderEntry type="library" name="SBT: edu.arizona.sista:processors_2.11:5.3:jar" level="project" />
     <orderEntry type="library" name="SBT: edu.arizona.sista:processors_2.11:5.3:models:jar" level="project" />
+    <orderEntry type="library" name="SBT: com.typesafe.scala-logging:scala-logging-api_2.11:2.1.2:jar" level="project" />
+    <orderEntry type="library" name="SBT: com.typesafe.scala-logging:scala-logging-slf4j_2.11:2.1.2:jar" level="project" />
+    <orderEntry type="library" name="SBT: org.apache.logging.log4j:log4j-api:2.0-beta8:jar" level="project" />
+    <orderEntry type="library" name="SBT: org.apache.logging.log4j:log4j-core:2.0-beta8:jar" level="project" />
+    <orderEntry type="library" name="SBT: org.rogach:scallop_2.11:0.9.5:jar" level="project" />
+    <orderEntry type="library" name="SBT: org.scalanlp:breeze-config_2.11:0.9.1:jar" level="project" />
+    <orderEntry type="library" name="SBT: org.scalanlp:nak_2.11:1.3:jar" level="project" />
   </component>
 </module>

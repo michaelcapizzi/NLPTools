@@ -16,6 +16,7 @@ libraryDependencies ++= Seq(
   "com.quantifind" % "wisp_2.11" % "0.0.4",               //visualization
   "org.scalanlp" % "breeze-natives_2.11" % "0.11.2",      //linear algebra
   "org.scalanlp" % "breeze_2.11" % "0.11.2",
+  "org.scalanlp" % "nak_2.11" % "1.3",                       //classification and clustering
   "org.jblas" % "jblas" % "1.2.3",
   "edu.cmu.cs" % "ark-tweet-nlp" % "0.3.2",               //twitter NLP
   "org.twitter4j" % "twitter4j" % "4.0.3",                //twitter API
