@@ -4,7 +4,7 @@
 		module="nlptools-build"
 		revision="0.1-SNAPSHOT"
 		status="integration"
-		publication="20150506190103"
+		publication="20150802102422"
 		e:sbtVersion="0.13" e:scalaVersion="2.10"
 	>
 		<description>

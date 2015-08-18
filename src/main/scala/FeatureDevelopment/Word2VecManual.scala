@@ -142,8 +142,6 @@ class Word2VecManual(
     this.w2vHashMap -= word
   }
 
-
-
   //TODO add capacity for clusters
   //get w2v vector for given word
   def getVector(word: String): breeze.linalg.DenseVector[Double] = {
